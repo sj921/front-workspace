@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/ccenterss2?family=Varela+Round&display=swap');
+
+#font1 {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+}
+
+#font2 {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 15px;
+    color: mediumorchid;
+}
+
+* {    
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: rgb(248, 229, 248);
+}
+
+h3 {
+    margin-left: 20px;
+}
+
+h5 {    
+    margin: 0 2.5% 0 2.5%;
+}
+
+
+div {          
+    float: left;
+    border: solid black 1px;
+    padding: 5px;
+    background-color: mediumorchid;
+}
+
+.flex-container1 {  
+    display: flex;       
+    align-items: flex-start;  
+    width: 45%;
+    height: 120px;
+    margin: 0 2.5% 0 2.5%;
+    background-color: mediumorchid;
+}
+
+.flex-container1 > div:first-child {
+    width: 25%;
+    height: 50%;  
+    margin-right: 5px;
+    background-color: orange;
+}
+
+.flex-container1 > div:nth-child(2) {
+    width: 25%;
+    height: 60%;
+    margin-right: 5px;
+    background-color: orange;
+}
+
+.flex-container1 > div:nth-child(3) {
+    width: 25%;
+    height: 30%;
+    margin-right: 5px;
+    background-color: orange;
+}
+
+.flex-container1 > div:nth-child(4) {
+    width: 25%;
+    height: 40%;
+    background-color: orange;
+}
+
+
+
+.flex-container2 {
+    display: flex;  
+    align-items: flex-end;  
+    width: 45%;
+    height: 120px;
+    margin: 0 2.5% 0 2.5%;
+    background-color: mediumorchid;
+}
+
+.flex-container2 > div:first-child {
+    width: 25%;
+    height: 50%;  
+    margin-right: 5px;
+    background-color: orange;
+}
+
+.flex-container2 > div:nth-child(2) {
+    width: 25%;
+    height: 60%;
+    margin-right: 5px;
+    background-color: orange;
+}
+
+.flex-container2 > div:nth-child(3) {
+    width: 25%;
+    height: 30%;
+    margin-right: 5px;
+    background-color: orange;
+}
+
+.flex-container2 > div:nth-child(4) {
+    width: 25%;
+    height: 40%;
+    background-color: orange;
+}
+
+
+
+.flex-container3 {
+    display: flex;  
+    align-items: center;  
+    width: 45%;
+    height: 120px;
+    margin: 0 2.5% 0 2.5%;
+    background-color: mediumorchid;
+}
+
+.flex-container3 > div:first-child {
+    width: 25%;
+    height: 50%;  
+    margin-right: 5px;
+    background-color: orange;
+}
+
+.flex-container3 > div:nth-child(2) {
+    width: 25%;
+    height: 60%;
+    margin-right: 5px;
+    background-color: orange;
+}
+
+.flex-container3 > div:nth-child(3) {
+    width: 25%;
+    height: 30%;
+    margin-right: 5px;
+    background-color: orange;
+}
+
+.flex-container3 > div:nth-child(4) {
+    width: 25%;
+    height: 40%;
+    background-color: orange;
+}
+
+
+
+
+.flex-container4 {
+    display: flex;  
+    align-items: stretch;  
+    width: 45%;
+    height: 120px;
+    margin: 0 2.5% 0 2.5%;
+    background-color: mediumorchid;
+}
+
+.flex-container4 > div:first-child {
+    width: 25%;
+    height: 100%; 
+    margin-right: 5px;
+    background-color: orange;
+}
+
+.flex-container4 > div:nth-child(2) {
+    width: 25%;
+    height: 100%;
+    margin-right: 5px;
+    background-color: orange;
+}
+
+.flex-container4 > div:nth-child(3) {
+    width: 25%;
+    height: 100%;
+    margin-right: 5px;
+    background-color: orange;
+}
+
+.flex-container4 > div:nth-child(4) {
+    width: 25%;
+    height: 100%;
+    background-color: orange;
+}
+
+
+.flex-container5 {
+    display: flex;        
+    align-items: baseline;
+    width: 95%;
+    height: 120px;
+    margin: 0% 2.5% 0% 2.5%;
+    background-color: mediumorchid;
+}
+
+.flex-container5 > div:first-child {
+    width: 25%;
+    height: 80%; 
+    margin-right: 2.5%;
+    background-color: orange;
+}
+
+.flex-container5 > div:nth-child(2) {
+    width: 25%;
+    height: 40%;
+    margin-right: 2.5%;
+    background-color: orange;
+}
+
+.flex-container5 > div:nth-child(3) {
+    width: 25%;
+    height: 70%;
+    margin-right: 2.5%;
+    background-color: orange;
+}
+
+.flex-container5 > div:nth-child(4) {
+    width: 25%;
+    height: 80%;
+    background-color: orange;
+}
+
+
+
+

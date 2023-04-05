@@ -1,0 +1,75 @@
+[id*="shadow"] {
+    font-size : 30px;
+    color: white;
+}
+
+
+#shadow01 {    
+    text-shadow: 1px 1px 5px black;
+}
+
+#shadow02 { 
+    text-shadow: 1px 1px 5px black,
+                 2px 2px 6px yellowgreen,
+                 2px 2px 15px yellowgreen;
+}
+
+#shadow03 { 
+    background-color: peru;
+    box-sizing: border-box;
+    width: 7cm;
+    height: 7cm;
+    padding: 30px;
+    box-shadow: 5px 5px 0px rgb(190, 116, 41),
+                10px 10px 0px rgb(159, 92, 24),
+                15px 15px 0px rgb(124, 68, 13),
+                20px 20px 0px rgb(94, 54, 13),
+                25px 25px 0px black;
+}
+
+#practice01 {
+    color:#f7cfc8;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 80px;
+    letter-spacing: 10px;
+    text-align: center;
+    text-shadow: -6px -6px #4d84c8, -5px -5px #4d84c8,
+                 -4px -4px #4d84c8, -3px -3px #4d84c8, -2px -2px #4d84c8,
+                 -1px -1px #4d84c8, 1px 1px #4d84c8, 2px 2px #4d84c8,
+                 3px 3px #4d84c8, 4px 4px #4d84c8, 5px 5px #4d84c8,
+                 6px 6px #4d84c8, 7px 7px #4d84c8, 8px 8px #4d84c8,
+                 9px 9px #4d84c8, 10px 10px #4d84c8, 11px 11px #4d84c8,
+                 12px 12px #4d84c8, 13px 13px #4d84c8, 14px 14px #4d84c8,
+                 15px 15px #4d84c8, 16px 16px #4d84c8, 17px 17px #4d84c8,
+                 18px 18px #4d84c8, 19px 19px #4d84c8, 20px 20px #4d84c8,
+                 21px 21px #4d84c8, 22px 22px #4d84c8, 23px 23px #4d84c8,
+                 24px 24px #4d84c8, 25px 25px #4d84c8, 26px 26px #4d84c8,
+                 27px 27px #4d84c8, 25px 25px #4d84c8, 28px 28px #4d84c8,
+                 29px 29px #4d84c8, 30px 30px #4d84c8, 31px 31px #4d84c8,
+                 32px 32px #4d84c8, 33px 33px #4d84c8, 34px 34px #4d84c8,
+                 35px 35px #4d84c8, 36px 36px #4d84c8, 37px 37px #4d84c8,
+                 38px 38px #4d84c8, 39px 39px #4d84c8, 40px 40px;
+  width: 100%;
+}
+
+
+#practice02 {
+    background-color: black;
+    color: white;
+    box-sizing: border-box;
+    width: 5cm;
+    height: 3cm;  
+    text-align: center;
+    box-shadow: 0 0 10px 5px #48abe0,
+    0 0 20px 7px #ebecca,
+    0 0 25px 20px #8a2be2,
+    0 0 30px 25px #ff1493;
+    padding-top: 50px;
+    margin: 3cm auto 10cm 7cm;
+}
+
+
+
+
+
+

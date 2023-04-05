@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hide {
+        display: none !important;
+        }
+
+        .rel_search {
+        display:flex;
+        flex-direction:column;
+        justify-content : space-around;
+        border: 1px solid red;
+        width: 200px;
+        
+        }
+
+
+        .pop_rel_keywords {
+        list-style: none;
+        margin-right: 30%;
+
+        }
+
+        .pop_rel_keywords > li {
+        line-height : 200%;
+        margin-left: -20px;
+        }
+
+        .pop_rel_keywords li.selected {
+  background-color: #eee;
+}
+
+
+    </style>
+</head>
+<body>
+    <input class= "search_input">
+    <container class = "rel_search" id="rel_search_box">
+        <ul class="pop_rel_keywords">
+        </ul>
+        <div>검색어 자동 완성 끄기<button onclick="auto_complete_off()">X</button></div>
+    </container>
+
+    <script>
+        const ul = document.querySelector(".pop_rel_keywords");
+    const searchInput = document.querySelector(".search_input");
+    const relContainer = document.querySelector(".rel_search");
+    let cache = '';
+
+    const checkInput = () => {
+        
+        const beforeInput = searchInput.value;
+        timer(beforeInput);
+            
+        
+    }
+
+    relContainer.classList.add("hide");
+
+    const timer = (beforeInput) => {
+       
+
+        if(document.hasFocus()){
+
+                setTimeout(() => {
+                    
+                    if(searchInput.value === beforeInput) {
+                    console.log("입력멈춤");
+                    loadData(searchInput.value);
+                    checkInput();
+                    
+                    } else {
+                    console.log("입력변함");
+                    checkInput();
+                    }
+                
+                    if(searchInput.value === "") {
+                    relContainer.classList.add("hide");
+                    
+                    } else {
+                    relContainer.classList.remove("hide");
+                    }
+                }, 50);
+            }
+
+
+        }
+   
+
+
+    const loadData = (input) => {
+    const url = `https://completion.amazon.com/api/2017/suggestions?session-id=135-3077052-6015425&customer-id=&request-id=DMRETXPQ3PZJQ5TKYSWX&page-type=Gateway&lop=en_US&site-variant=desktop&client-info=amazon-search-ui&mid=ATVPDKIKX0DER&alias=aps&b2b=0&fresh=0&ks=undefined&prefix=${input}&event=onFocusWithSearchTerm&limit=11&fb=1&suggestion-type=KEYWORD&suggestion-type=WIDGET&_=1615280967091`;
+    
+    if(cache === url) return;
+    else {
+    cache = url;
+    fetch(url)
+    .then((res) => res.json())
+    .then(res => fillSearch(res.suggestions))
+    }
+    }
+
+    const fillSearch = (suggestArr) => {
+    ul.innerHTML = "";
+    suggestArr.forEach((el, idx) => {
+        const li = document.createElement("li");
+        li.innerHTML = el.value;
+        ul.appendChild(li);
+    }) 
+        
+    const liList = document.querySelectorAll(".pop_rel_keywords li");
+
+    
+    }
+
+    const highlightText = () => {
+
+
+    }
+    searchInput.onfocus = function(e){
+        checkInput();
+    };
+
+    searchInput.onblur = function(e){
+           
+    };
+
+
+    function auto_complete_off(){
+        document.getElementById('rel_search_box').style.display='none';
+    }
+
+    
+//     const listItems  = document.querySelectorAll(".pop_rel_keywords li");
+//     let selectedIndex = 0;
+
+// searchInput.addEventListener("keydown", (e) => {
+
+//   if (event.keyCode === 38) {
+//     e.preventDefault();
+//     if (selectedIndex > 0) {
+//         listItems [selectedIndex].classList.remove("selected");
+//       selectedIndex--;
+//     } else {
+//         listItems [selectedIndex].classList.remove("selected");
+//       selectedIndex = listItems .length - 1;
+//     }
+//     listItems [selectedIndex].classList.add("selected");
+//     searchInput.value = listItems [selectedIndex].innerText;
+//   } else if (event.keyCode === 40) {
+//     e.preventDefault();
+//     if (selectedIndex < listItems .length - 1) {
+//       if (selectedIndex > -1) {
+//         listItems [selectedIndex].classList.remove("selected");
+//       }
+//       selectedIndex++;
+//     } else {
+//         listItems [selectedIndex].classList.remove("selected");
+//       selectedIndex = 0;
+//     }
+//     listItems [selectedIndex].classList.add("selected");
+//     searchInput.value = listItems [selectedIndex].innerText;
+//   }
+// });
+
+
+
+
+
+let selectedItemIndex = 0;
+
+
+searchInput.addEventListener('keydown', handleKeyDown, (e) => {
+
+const listItems = document.querySelectorAll(".pop_rel_keywords li");
+
+    function handleKeyDown(e) {
+        if (e.keyCode === 38) { // 위쪽 방향키
+            selectedItemIndex = (selectedItemIndex === 0) ? listItems.length - 1 : selectedItemIndex - 1;
+        } else if (e.keyCode === 40) { // 아래쪽 방향키
+            selectedItemIndex = (selectedItemIndex === listItems.length - 1) ? 0 : selectedItemIndex + 1;
+        } else {
+            return;
+        }
+        
+        e.preventDefault();
+
+        
+        // input 요소가 아닌 경우에만 포커스 이동
+        if (document.activeElement !== searchInput) {
+            listItems[selectedItemIndex].focus();
+        }
+    }
+
+});
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

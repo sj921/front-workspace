@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13_Node(copy).html</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #out {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            width: 300px;
+            height: 300px;
+            column-gap: 5px;
+            row-gap: 5px;
+            
+        }
+
+        #out > div {
+            border: solid black 1px;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <h3># Node</h3>
+
+    <ul>
+        <li>documnet 내부에 있는 것은 모두 Node라고 한다</li>
+        <li>요소를 더욱 세분화한 개념</li>
+        <li>하나의 요소를 Element Node와 Text Node로 나눌 수 있다</li>
+        <li>주석들은 Comment Node라고 부른다</li>
+        <li>자바스크립트로 노드들을 직접 생성하여 추가할 수 있다</li>
+    </ul>
+
+    <div id="out"></div>
+
+    <button onclick="push();">push!</button>
+    <button onclick="pop();">pop!</button>
+
+    <script>
+        let cnt = 0;
+
+        const addPersonIcon = () => {
+
+            // (1) div 태그인 새 요소를 하나 생성
+            const newDiv = document.createElement('div');
+            const iconSpan = document.createElement('span');
+
+            // (2) 해당 요소의 텍스트 노드를 생성
+            const newTextNode = document.createTextNode('person');
+
+            // (3) 해당 요소에 텍스트 노드를 부착
+            iconSpan.appendChild(newTextNode)
+            newDiv.appendChild(iconSpan);          
+
+            iconSpan.setAttribute('class', 'material-symbols-outlined');
+
+            // (4) 원하는 곳에 새 요소를 추가
+            out.appendChild(newDiv);
+
+        };
+
+        const replacePersonIcon = (cnt) => {
+            const index = cnt % 25;
+
+            const targetSpan = 
+                document.querySelector(`#out > :nth-child(${index + 1}) > span`);
+
+            targetSpan.innerText = 'group';
+        }
+
+        // 버튼을 누르면 새 요소 만들기
+        const push = () => {
+            if (cnt >= 50) {
+                return;
+            }
+
+            console.log(cnt);
+    
+            if (cnt < 25) {
+                addPersonIcon();
+            } else {
+                replacePersonIcon(cnt);
+            }
+
+            cnt++;            
+            
+        };
+
+        // pop 버튼을 누르면 하나씩 사라지게 만들기
+        // const pop = () => {           
+        //     const lastDiv = document.querySelector('#out > :last-child');
+        //     out.removeChild(lastDiv);
+        //     cnt--;
+        // };
+
+        const reducePersonIcon = (cnt) => {
+            const index = cnt % 25;
+
+            const targetSpan = 
+                document.querySelector(`#out > :nth-child(${index + 1}) > span`);
+
+            targetSpan.innerText = 'person';
+        }
+
+        // pop 버튼을 누르면 사람이 감소하게 만들기
+        const pop = () => {     
+            if (cnt == 0) {
+               return; 
+            }
+            console.log(cnt);
+            
+            if (cnt > 25) {
+                const index = (cnt-1) % 25;
+                console.log('index:', index);
+                const targetSpan = 
+                    document.querySelector(`#out > :nth-child(${index+1}) > span`);
+                targetSpan.innerText = 'person';
+
+            } else {
+                const lastDiv = document.querySelector('#out > :last-child');
+                out.removeChild(lastDiv);                       
+            }
+            cnt--;  
+        };
+        
+        const out = document.getElementById('out');
+
+    </script>
+
+</body>
+</html>

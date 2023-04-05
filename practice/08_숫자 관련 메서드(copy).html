@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08_숫자 관련 메서드(copy).html</title>
+</head>
+<body>
+    
+    <h3># 숫자 타입을 다룰 수 있는 메서드들</h3>
+
+    <!-- kbd : 키보드 버튼의 의미를 지닌 태그 -->
+    <kbd>F12</kbd>를 눌러 확인
+
+    <script>
+
+        // parseInt        
+        console.log(parseInt('1234'));
+        console.log(parseInt('1000', 2));
+        console.log(parseInt('ABC', 16));
+
+        // 이상한 값을 parseInt() 하는 경우 NaN
+        console.log(parseInt('Hello!!'));
+        console.log(parseInt(new Date())); // NaN : Not a Number
+
+        // NaN은 숫자 타입
+        console.log(typeof NaN);
+
+        // parseFloat()도 있다
+        console.log(parseFloat('123.12345'));
+        
+        // parseInt() 대신 Number()를 사용 가능
+        console.log(Number('123'));
+        console.log(Number('123.12345'));
+
+        // true/false도 숫자 타입으로 변환 가능
+        console.log(Number(true));
+        console.log(Number(false));
+
+        // while(1)은 while(true) 와 같음
+        let i = 0;
+        while (1) {
+            console.log('Hello!!', i++);
+            if (i == 100){
+                break;
+            }
+        }
+
+        // Date를 Number()로 변환하면 Unix Time이 된다
+        console.log('Unix Time (now): ', Number(new Date()));
+
+        // toString()으로 숫자를 문자 타입으로 변환할 수 있음
+        const num = 3333;
+        console.log(num.toString());
+        console.log('radix 2\t :', num.toString(2));
+        console.log('radix 8\t :', num.toString(8));
+        console.log('radix 16 : ', num.toString(16));
+
+    </script>
+
+</body>
+</html>

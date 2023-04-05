@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Simple Autocompleter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+<style>#example-logo {display: block;position: fixed;bottom: 0;right: 0;z-index: 10;width: 120px;padding: 15px 20px;font-family: sans-serif;font-size: 11px;background-color: rgba(255,255,255,0.7);text-decoration: none;color: inherit;}#example-logo img {width: 100%;margin-top: 4px}</style>
+    <style>
+        #autocomplete {
+            width: 300px;
+        }
+        input {display: block;border: 1px solid #ddd;box-sizing: border-box;padding: 8px;width: 100%;font-size: 18px;font-family: sans-serif;}
+        #autocomplete-suggestions {background-color: #ddd;border: 1px solid #ddd;border-top: 0;width: 100%;box-sizing: border-box;font-family: sans-serif;display: none;max-height: 120px;overflow-y: auto;position: relative;}
+        ul {list-style-type: none;padding: 0;margin: 0;}
+        li, #autocomplete-suggestions div {padding: 8px;}
+        li:hover {background-color: orange;}
+        li.hl {background-color: orange}
+    </style>
+</head>
+<body>
+<h1>A simple autocompleter with arrow navigation</h1>
+<p>If you navigate around the list of suggestions in this autocompleter, the highlighted suggestion will always be shown to you within the visible area of the suggestions box.</p>
+<p>Try typing in <code>'a'</code> into the input field and then navigating across the suggestions.</p>
+<div id="autocomplete">
+    <input type="text" id="autocomplete-input" placeholder="Type a food item..">
+    <div id="autocomplete-suggestions"></div>
+</div>    
+<a id="example-logo" href="/" target="_top">powered by<img src="/Images/logo-black.svg" alt="Logo"></a><script>
+    var list = ["Pizza", "Pasta", "Cookie", "Cake", "Crackers", "Coca Cola", "Cocktail", "Capsicum", "Cod", "Cucumber", "Donut"];
+    var inputArea = document.getElementById("autocomplete-input"),
+        suggestionsBox = document.getElementById("autocomplete-suggestions"),
+        len = list.length,
+        lastSuggestionIndex, suggestionElements, isNavigating = false, sBoxHeight = 0;
+
+    function hideSuggestionsBox() {
+        suggestionsBox.innerHTML = "";
+        suggestionsBox.style.display = "none";
+    }
+
+    inputArea.onkeyup = function() {
+        if (isNavigating) {
+            return;
+        }
+
+        var q = this.value,
+        suggestions = [];
+
+        if (q.length === 0) {
+            hideSuggestionsBox();
+            return;
+        }
+
+        suggestionsBox.innerHTML = "";
+
+        for (var i = 0; i < list.length; i++) {
+            if (list[i].toLowerCase().indexOf(q.toLowerCase()) !== -1) {
+                suggestions.push('<li>' + list[i] + '</li>');
+            }
+        }
+
+        if (suggestions.length === 0) {
+            suggestionsBox.innerHTML = "<div>No results found!</div>";
+        }
+        else {
+            suggestionsBox.innerHTML = '<ul>' + suggestions.join("") + '</ul>';
+            lastSuggestionIndex = suggestions.length - 1;
+            suggestionElements = suggestionsBox.childNodes[0].childNodes;
+            sIndex = -1;
+        }
+
+        suggestionsBoxClicked = false;
+        suggestionsBox.style.display = "block";
+        suggestionHighlighted = -1;
+        sBoxHeight = suggestionsBox.clientHeight;
+        suggestionsBox.scrollTop = 0
+    }
+
+    suggestionsBox.onclick = function (e) {
+        // if clicked on a suggestion, select it
+        if (e.target.nodeName === "LI") {
+            inputArea.value = e.target.innerHTML;
+            hideSuggestionsBox();
+        }
+    }
+
+    var suggestionsBoxClicked = false;
+    suggestionsBox.onmousedown = function(e) {
+        suggestionsBoxClicked = true;
+        e.preventDefault();
+        setTimeout(function() {
+            suggestionsBoxClicked = false;
+        }, 0);
+    }
+
+    inputArea.onblur = function () {
+        if (!suggestionsBoxClicked) {
+            suggestionsBox.style.display = "none";
+        }
+    }
+
+    var sIndex = -1;
+
+    function synchroniseSuggestionsBox() {
+        var sOffsetTop = suggestionElements[sIndex].offsetTop,
+            sHeight = suggestionElements[sIndex].clientHeight;
+
+        if ((sOffsetTop + sHeight - suggestionsBox.scrollTop) > sBoxHeight) {
+            suggestionsBox.scrollTop = sOffsetTop + sHeight - sBoxHeight
+        }
+        else if (suggestionsBox.scrollTop > sOffsetTop) {
+            suggestionsBox.scrollTop = sOffsetTop
+        }
+    }
+
+    inputArea.onkeydown = function (e) {
+        isNavigating = false;
+
+        // down key is pressed
+        if (e.keyCode === 40) {
+            isNavigating = true;
+            if (sIndex === -1) {
+                suggestionElements[++sIndex].classList.add("hl");
+            }
+            else if (sIndex === lastSuggestionIndex) {
+                suggestionElements[sIndex].classList.remove("hl");
+                sIndex = -1;
+            }
+            else {
+                suggestionElements[sIndex].classList.remove("hl");
+                suggestionElements[++sIndex].classList.add("hl");
+            }
+            if (sIndex !== -1) synchroniseSuggestionsBox();
+        }
+
+        else if (e.keyCode === 38) {
+            isNavigating = true;
+            if (sIndex === -1) {
+                sIndex = lastSuggestionIndex;
+                suggestionElements[sIndex].classList.add("hl");
+            }
+            else if (sIndex === 0) {
+                suggestionElements[sIndex].classList.remove("hl");
+                sIndex = -1;
+            }
+            else {
+                suggestionElements[sIndex].classList.remove("hl");
+                suggestionElements[--sIndex].classList.add("hl");
+            }
+            if (sIndex !== -1) synchroniseSuggestionsBox();
+        }
+
+        else if (e.keyCode === 13) {
+            isNavigating = true;
+            if (sIndex !== -1) {
+                inputArea.value = suggestionElements[sIndex].innerHTML;
+                hideSuggestionsBox();
+            }
+        }
+    }
+    </script>
+</body>
+</html>

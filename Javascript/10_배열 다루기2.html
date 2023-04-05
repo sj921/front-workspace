@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10_배열 다루기2.html</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #all-students {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            column-gap: 5px;
+            /* grid-template-rows: ; */
+        }
+
+        #avg-students {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 5px;
+            width: 50%;
+        }
+
+        #danger-students {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            column-gap: 5px;
+        }
+
+        .danger {
+            color: red;
+            font-weight: bold;
+            text-decoration: red 1px double underline;
+        }
+
+        .header {
+            background-color: black;
+            color: white;
+        }
+
+        .data {
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div id="all-students">
+        <div class="header">번호</div>
+        <div class="header">이름</div>
+        <div class="header">국어</div>
+        <div class="header">영어</div>
+        <div class="header">수학</div>
+        <div class="header">별점</div>
+    </div>
+
+    <div id="avg-students">
+        <div class="header">번호</div>
+        <div class="header">이름</div>
+        <div class="header">평균</div>
+    </div>
+
+    <div id="danger-students">
+        <div class="header">번호</div>
+        <div class="header">이름</div>
+        <div class="header">국어</div>
+        <div class="header">영어</div>
+        <div class="header">수학</div>
+        <div class="header">별점</div>
+    </div>
+
+
+    <script>
+        function getRandomScore() {
+            return parseInt(Math.random() * 101);
+        }
+
+        const scores = [];
+
+        for (i = 0; i < 10; ++i) {
+            scores[i] = getRandomScore();
+        }
+
+        console.log(scores);
+
+        // 배열.forEach() : 배열의 모든 값을 가지고 전달한 함수의 동작을 수행한다
+
+        // ★ 자바스크립트는 함수를 변수에 저장할 수 있다
+        const myFunc = function (value, index, array) {
+            console.log(`${index}번째 학생의 점수: ${value * 2}`);
+        };
+
+        // ★ 변수(myFunc)에 저장된 함수를 forEach 함수의 인자값으로 전달할 수 있다
+        scores.forEach(myFunc);
+
+        // ★ 변수에 저장된 함수를 직접 실행할 수도 있다
+        myFunc(3, 99, [1, 2, 3]);
+
+        // 배열.map() : map에 전달한 함수의 결과들로 만들어진 새로운 배열을 생성한다
+        const newMapArray = scores.map(function (value, index) {
+            return value * 2;
+        });
+
+        console.log(newMapArray);
+
+        // 연습1 : scores 배열을 이용해 grades 배열을 생성해보세요
+        const grades = scores.map(function (score) {
+            let grade = 'F';
+            if (score >= 90) {
+                grade = 'A';
+            } else if (score >= 80) {
+                grade = 'B';
+            } else if (score >= 70) {
+                grade = 'C';
+            } else if (score >= 60) {
+                grade = 'D';
+            } 
+
+            return {
+                stu_score: score,
+                stu_grade: grade
+            };
+
+        });
+        console.log(grades[0].stu_grade);
+        console.log(grades[0].stu_score);
+        console.log(grades);
+        
+        // 배열.filter() : 전달한 함수에서 true를 리턴한 값만 남기는 함수
+        const filteredStudents = grades.filter(function (value) {
+            return value.stu_grade === 'C' || value.stu_grade === 'D';
+        });
+
+        console.log('전체 학생:', grades)
+        console.log('C 또는 D인 학생:', filteredStudents);
+
+        // 배열.reduce() : 배열의 모든 값을 이용해 하나의 결과를 낼 수 있는 함수
+        console.log(scores);
+
+        const total = scores.reduce(function (previousValue, currentValue, index) {
+            console.log(`[${index}번째 reduce]`);
+            console.log(`여태까지의 합: ${previousValue}`);
+            console.log(`이번에 더할 값: ${currentValue}`);
+            return previousValue + currentValue;
+        });
+
+        const smallestValue = scores.reduce(function (previousValue, currentValue, index) {
+            console.log(`[${index}번째 reduce]`);
+            console.log(`현재까지 가장 작은 값: ${previousValue}`);
+            console.log(`이번에 비교할 값: ${currentValue}`);
+            return previousValue < currentValue ? previousValue : currentValue;
+        });
+   
+        console.log(smallestValue);
+
+        /*
+            (1) 학생 번호, 이름, 국/영/수 랜덤 점수, 급식 만족도를 가진 
+                학생 100명의 자바스크립트 오브젝트를 생성
+
+            (2) 모든 학생들의 평균 점수들로 이루어진 배열을 생성
+
+            (3) 수학 점수가 60점 이하인 학생들로만 이루어진 배열을 생성   
+
+            (4) 학생들의 급식 만족도의 평균을 구할 것
+
+            (1), (2), (3)을 모두 html에 보기좋게 출력할 것
+        */
+
+        let studentNumber = 1;
+
+        const lastNames = ['고', '강', '김', '구', '권', '노', '나', '도', '박', '방', '배', 
+                        '서', '성', '이', '안', '임', '장', '정', '조', '채', '최', '한', '허'];
+        const firstNames = ['태현', '태희', '태식', '민식', '현수', '민수', '현식'];
+
+        const getRandomName = function () {
+            return lastNames[parseInt(lastNames.length * Math.random())]
+                + firstNames[parseInt(firstNames.length * Math.random())];
+        };
+
+        // const getRandomScore = function () {
+        //     return parseInt(Math.random() * 101);
+        // };
+
+        const getRandomStudent = function () {
+            return {
+                num: studentNumber++,
+                name: getRandomName(),
+                kor: getRandomScore(),
+                eng: getRandomScore(),
+                math: getRandomScore(),
+                star: parseInt(Math.random() * 5 + 1)
+            };            
+        };
+
+        // console.log(getRandomStudent());
+
+        const students = [];
+
+        for (i = 0; i < 100; ++i) {
+            students.push(getRandomStudent());
+        }
+
+        const grid1 = document.getElementById('all-students');
+
+        // Arrow Function
+        students.forEach((stu) => {
+            grid1.innerHTML += `<div class="data">${stu.num}</div>`;
+            grid1.innerHTML += `<div class="data">${stu.name}</div>`;
+            grid1.innerHTML += `<div class="data">${stu.kor}</div>`;
+            grid1.innerHTML += `<div class="data">${stu.eng}</div>`;
+            grid1.innerHTML += `<div class="data">${stu.math}</div>`;
+            grid1.innerHTML += `<div class="data">${stu.star}</div>`;
+        });
+
+
+        const studentsAvgs = students.map((stu) => {
+            return {
+                num: stu.num,
+                name: stu.name,
+                avg: (stu.kor + stu.eng + stu.math) / 3
+            };
+        });    
+
+        console.log(studentsAvgs);
+
+        const grid2 = document.getElementById('avg-students');
+
+        studentsAvgs.forEach((stuAvg) => {
+            grid2.innerHTML += `<div class="data">${stuAvg.num}</div>`;
+            grid2.innerHTML += `<div class="data">${stuAvg.name}</div>`;
+            grid2.innerHTML += `<div class="data">${Math.round(stuAvg.avg)}</div>`;
+        });
+
+        const dangerStudents = students.filter((stu) => {
+            return stu.math <= 60;
+        });
+
+        console.log(dangerStudents);
+
+        const grid3 = document.getElementById('danger-students');
+
+        dangerStudents.forEach((dang) => {
+            grid3.innerHTML += `<div class="data">${dang.num}</div>`;
+            grid3.innerHTML += `<div class="data">${dang.name}</div>`;
+            grid3.innerHTML += `<div class="data">${dang.kor}</div>`;
+            grid3.innerHTML += `<div class="data">${dang.eng}</div>`;
+            grid3.innerHTML += `<div class="data danger">${dang.math}</div>`;
+            grid3.innerHTML += `<div class="data">${dang.star}</div>`;
+        });
+
+        // return만 하는 함수는 이렇게까지 줄일 수 있다
+        const stars = students.map((stu) => stu.star);
+
+        const total2 = stars.reduce((sum, curr) => sum + curr);
+
+        console.log('평균 별점:', total2 / stars.length);
+
+
+    </script>
+
+</body>
+</html>

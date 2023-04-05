@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+}
+
+.rect {
+    border: solid 3px black;
+    width: 100px;
+    height: 100px;
+    color: white;
+}
+
+#div1 {
+    background-color: red;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    z-index: -1;
+    opacity: 0.7; /* opacticy - 불투명도 (1.0이면 불투명 상태, 0이면 완전 투명)*/   
+}
+
+#div2 {
+    background-color: orange;
+    position: relative;
+    top: 50px;
+    left: 50px;
+    z-index: 1;
+}
+
+#div3 {
+    background-color: green;
+    position: relative;
+    left: 100px;   
+}
+
+#div4 {
+    background-color: white;
+    padding: 10px;
+    font-size: 45px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+
+body {
+    margin: 0;
+}
+
+
+.header {    
+    width: 100%;
+    background-color: white;
+    border: solid 3px black;
+    height: 50px;
+    font-size: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+
+
+
+
+
+

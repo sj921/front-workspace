@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_링크.html</title>
+</head>
+<body>
+    
+    <h3># 다른 페이지로 이동하기 위한 링크걸기</h3>
+
+    <p>
+        - a태그 이용하기 <br>
+        - 자바스크립트 이용하기 <br>
+    </p>
+
+    <h3># A태그 이용하기</h3>
+
+    <!--
+        요소에는 a, b, i 등 문단의 형태를 해치지 않는 타입이 있고 (인라인 요소)
+
+        p, h 등의 문단의 형태를 해치는 타입이 있다 (블록 요소)
+    -->
+    <p>
+        자세한 정보는 <a href="http://google.com">여기</a>에서 확인하세요!
+    </p>
+
+    <h3># Javascript로 링크 걸기</h3>
+
+    <!-- HTML에서는 여러개의 공백을 하나의 공백으로 인식한다 -->
+    <p>
+        자세한 정보는
+        <button onclick="location.href='http://naver.com';">여기</button>에서 
+        확인하세요!
+    </p>
+   
+    <h3># 공백 테스트</h3>
+
+    <!-- HTML에서는 여러개의 공백 (엔터키, 탭키, 스페이스 등)을 
+         하나의 공백으로 인식한다 -->
+    <p>
+        1. 안               녕하세요 <br>
+        2. 안\n녕하세요 <br>
+        3. 안 녕하세요 <br>
+        4. 안
+        녕하세요 <br>
+    </p>
+
+    <h3># 경로 테스트</h3>
+
+    <p>
+        - <a href="naver.com">naver.com</a> <br>
+        - <a href="./naver.com">./naver.com</a> <br>
+        - <a href="/naver.com">/naver.com</a> <br>
+        - <a href="//naver.com">//naver.com</a> <br>
+        - <a href="http://naver.com">http://naver.com</a> <br>
+    </p>
+
+    <h3># 내부 페이지로 링크 걸기</h3>
+
+    <p>
+        - <a href="./01_HTML이란.html">01로 가기</a> <br>
+        - <a href="./02_제목과 문단.html">02로 가기</a> <br>
+        - <a href="./03_요소.html">03으로 가기</a> <br>
+        - <a href="./04_속성.html">04로 가기</a> <br>
+        - <a href="../html/../html/../html/../html/04_속성.html">04로 가기</a> <br>
+    </p>
+
+    <h3># 페이지의 특정 부분으로 링크 걸기</h3>
+
+    <p>
+        페이지 내부 원하는 요소의 ID속성을 이용해 해당 요소가 위치한 화면으로 
+        링크할 수 있다. <br>
+        <br>
+        <a href="#chap01">Chapter One</a> <br>
+        <a href="#chap02">Chapter Two</a> <br>
+        <a href="#chap03">Chapter Three</a> <br>
+    </p>
+
+    <!-- target 속성으로 링크가 띄워질 위치를 설정할 수 있음 -->
+    <a href="http://naver.com/#themecast" target="_blank">Naver</a> 
+
+    <hr>
+
+    <h1 id="chap01">Chapter 01</h1>
+
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+
+    <h1 id="chap02">Chapter 02</h1>
+
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+
+    <h1 id="chap03">Chapter 03</h1>
+
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+    <p>Common sense is not so common.</p>
+
+
+</body>
+</html>

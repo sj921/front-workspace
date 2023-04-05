@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15_Timeout.html</title>
+    <style>
+        body {
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h3># window.setTimeout(callback, millisec)</h3>
+
+    <ul>
+        <li>설정한 시간만큼 기다린 후에 콜백 메서드를 한 번 실행한다</li>
+        <li>제거하려면 해당 타임아웃 인스턴스를 그대로 전달해야 한다</li>
+    </ul>
+
+    <h3># window.setInterval(callback, millisec)</h3>
+
+    <ul>
+        <li>설정한 시간 마다 콜백 메서드를 실행한다</li>
+        <li>제거하려면 해당 인터벌 인스턴스를 그대로 전달해야 한다</li>
+    </ul>
+
+
+    <button onclick="stop();">Stop!</button>
+    <button onclick="stopChangeColor();">I change my mind</button>
+
+    <script>
+        let size = 11;
+
+        const callback1 = () => {
+            document.body.style.fontSize = size++ + 'px';
+        };
+
+        // setInterval 후에는 중지시킬 수 있게끔 인스턴스가 반환된다
+        const interval1 = setInterval(callback1, 1000);
+
+        // 인터벌 중지
+        function stop() {
+            clearInterval(interval1);
+        }
+
+        // setTimeout 후에는 중지시킬 수 있게끔 인스턴스가 반환된다
+        const timeout1 = setTimeout(() => {
+            document.body.style.backgroundColor = 'green';
+            document.body.style.color = 'white';
+        }, 3000);
+
+        function stopChangeColor() {
+            clearTimeout(timeout1);
+        }
+
+    </script>
+
+</body>
+</html>

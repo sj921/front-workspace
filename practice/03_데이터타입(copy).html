@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_데이터타입(copy).html</title>
+</head>
+<body>
+    
+    <div id="out"></div>
+
+    <script>
+        // document.getElementById(id) : 원하는 HTML 요소를 ID로 가져온다
+        const out = document.getElementById("out");
+
+        // HTML 요소를 가져온 후에는 해당 요소를 마음대로 변경할 수 있다
+        out.innerHTML = '자바스크립트에서 추가한 문장입니다. <br>';
+        out.style.color = 'red';
+
+        // Number
+        let num = 10;
+        out.innerHTML += 'num(10)의 타입은 ' + typeof num + '입니다. <br>';
+        num = 10.123;
+        out.innerHTML += 'num(10.123)의 타입은 ' + typeof num + '입니다. <br>';
+
+        // typeof 변수 : 해당 변수에 들어있는 값의 타입을 알 수 있다
+
+        // String
+        num = 'ABCD';
+        out.innerHTML += 'num(ABCD)의 타입은 ' + typeof num + '입니다. <br>';
+
+        // Array
+        num = ['10', 11, 12, 'hello', 123.123];
+        out.innerHTML += 'num(Array)의 타입은 ' + typeof num + '입니다. <br>';
+        out.innerHTML += 'num instanceof Array : ' + (num instanceof Array) + '<br>';
+        
+        
+        for (i = 0; i < num.length; ++i) {
+            // out.innerHTML += 'num[' + i + '] : ' + num[i] + '<br>';
+            // ~을 shift 안누르고 해주면 `(backtick) : printf 같은 역할
+            out.innerHTML += `num[${i}] : ${num[i]} (backtick) <br>`; 
+        }
+
+        // Javascript Object (Java의 Map과 유사함)
+        let minsu = {
+            age: 15,
+            name: '최민수',
+            weight : 80,
+            0 : 'panda'
+        };
+
+        print(minsu[0]);    // 이렇게 쓰면 안되지만 되긴 된다.. -_-;
+        print(minsu['0']); 
+        print('민수의 나이: ' + minsu['age']);  // 접근 방법 1
+        print('민수의 이름: ' + minsu.name);    // 접근 방법 2
+        print('민수의 몸무게: ' + minsu.weight);
+
+        // 함수를 밑에서 선언해도 위에서 사용이 가능함
+        // => 자바스크립트 소스코드 해석 전에 함수들을 먼저 등록함
+        // => 일반 소스코드 실행이 함수 선언보다 항상 나중에 실행된다        
+        function print(text) {
+            out.innerHTML += text + '<br>';            
+        }
+
+    </script>
+
+
+</body>
+</html>

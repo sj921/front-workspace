@@ -1,0 +1,134 @@
+
+.color {
+    height: 50px;
+    border: solid 3px black;
+}
+
+@media all and (max-width: 600px) {
+    /* screen의 크기가 0 ~ 600px 사이일 때 적용될 스타일 */
+    .color {
+        color: red;
+    }
+
+    .color:first-of-type {
+        background-color: green;
+    }
+
+    .color:nth-of-type(2) {
+        background-color: yellow;
+    }
+
+    .color:nth-of-type(3) {
+        background-color: blue;
+    }
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-container > div {
+    background-color: olive;
+    color: white;
+    padding: 30px;
+    box-sizing: border-box;
+    font-size: 30px;
+    margin: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    .flex-container {
+        flex-direction: column;
+    }
+}
+
+#header {
+    background-color: rgb(0, 0, 80);
+    color: white;
+    grid-area: header;
+}
+
+#hero {
+    background-color: dodgerblue;
+    color: white;
+    grid-area: hero;
+}
+
+#menu {
+    background-color: crimson;
+    color: white;
+    grid-area: menu;
+}
+
+#main {
+    background-color: rgb(11, 11, 105);
+    color: white;
+    grid-area: main;
+}
+
+#banner {
+    background-color: rgb(232, 197, 0);
+    color: black;
+    grid-area: banner;
+}
+
+#extra {
+    background-color: darkturquoise;
+    color: black;
+    grid-area: extra;
+}
+
+#image {
+    background-color: skyblue;
+    color: black;
+    grid-area: image;   
+}
+
+#container {
+    font-size: 35px;
+}
+
+/* screen 크기가 0 ~ 720일 때 */
+@media only screen and (max-width: 720px) {
+    #container > div {
+        padding: 25px;
+    }
+}
+
+/* screen 크기가 721 이상일 때 */
+@media only screen and (min-width: 721px) {
+    #container {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 10% 2fr 2fr 1fr 1fr;
+        height: 800px;      
+        grid-template-areas: 
+            "header header header"
+            "hero hero hero"
+            "menu main main"
+            "menu banner banner"
+            "menu extra image";
+    }
+}
+
+/* screen 크기가 1024 이상일 때 */
+@media only screen and (min-width: 1024px) {
+    #container {     
+        grid-template-areas: 
+            "header menu menu"
+            "hero hero hero"
+            "banner main main"
+            "banner main main"
+            "extra image image";
+    }
+}
+
+
+
+
+
+
+
+
+

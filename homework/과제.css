@@ -1,0 +1,172 @@
+div {
+    border: 0px solid black;
+}
+
+#header {
+    background-color: darkturquoise;
+    color: white;
+    grid-area: header;
+}
+
+#hero {
+    background-color: aqua;
+    color: white;
+    grid-area: hero;
+}
+
+#menu {
+    background-color: aqua;
+    color: white;
+    grid-area: menu;
+}
+
+
+
+
+#main {
+    background-color: white;
+    color: white;
+    grid-area: main;
+}
+
+
+#container {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 1fr 1fr 5fr;
+    height: 800px;
+    width: 600px; 
+    font-size: 35px;
+   
+    grid-template-areas: 
+        "header header header header"
+        "menu menu menu menu"
+        "hero hero hero hero"
+        "main main main main"
+        
+}
+
+
+.flex-container {
+    display: flex;        
+    align-items: baseline;
+    width: 98%;
+    height: 22%;
+    padding: 5px 5px;
+    background-color: white;
+    text-align: center;
+    font-size: 2em;
+}
+
+.flex-container > div:first-child {
+    width: 22%;
+    height: 95%; 
+    margin: 2% 2%;
+    border-radius: 10px;
+    background-color: aqua;
+}
+
+.flex-container > div:nth-child(2) {
+    width: 22%;
+    height: 95%; 
+    margin: 2% 2%;
+    border-radius: 10px;
+    background-color: aqua;
+}
+
+.flex-container > div:nth-child(3) {
+    width: 22%;
+    height: 95%; 
+    margin: 2% 2%;
+    border-radius: 10px;
+    background-color: aqua;
+}
+
+.flex-container > div:nth-child(4) {
+    width: 22%;
+    height: 95%; 
+    margin: 2% 2%;
+    border-radius: 10px;
+    background-color: aqua;
+}
+
+
+.flex-container2 {
+    display: flex;              
+    align-items: baseline;
+    width: 98%;
+    height: 22%;
+    padding: 5px 5px;
+    background-color: white;
+    text-align: center;
+    font-size: 2em;
+}
+
+.flex-container2 > div:first-child {
+    width: 22%;
+    height: 95%; 
+    margin: 2% 2%;
+    border-radius: 10px;
+    background-color: darkturquoise;
+}
+
+.flex-container2 > div:nth-child(2) {
+    width: 22%;
+    height: 95%; 
+    margin: 2% 2%;
+    border-radius: 10px;
+    background-color: darkturquoise;
+}
+
+.flex-container2 > div:nth-child(3) {
+    width: 22%;
+    height: 95%; 
+    margin: 2% 2%;
+    border-radius: 10px;
+    background-color: darkturquoise;
+}
+
+.flex-container2 > div:nth-child(4) {
+    width: 22%;
+    height: 95%; 
+    margin: 2% 2%;
+    border-radius: 10px;
+    background-color: darkturquoise;
+}
+
+
+#header span {
+    float: right;
+}
+
+
+#menu div {
+    position: relative;
+    margin-top: 20px;
+}
+
+#menu div i:first-child {
+    float: left;
+}
+
+#menu div span {
+    margin-left: 20px;
+}
+
+#menu div i:nth-child(3) {
+    float: right;
+}
+
+#hero div {
+    position: relative;
+}
+
+#hero div:first-child {
+    float: left;
+    text-align: center;
+    margin-left: 100px;
+}
+#hero div:nth-child(2) {
+    float: right;
+    margin-right: 100px;
+}

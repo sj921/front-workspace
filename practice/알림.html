@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>  
+    <style>
+        @font-face {
+            font-family: 'SUIT-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        * {
+        padding:0;
+        margin:0;
+        box-sizing: border-box;
+        font-family: 'SUIT-Regular';
+        }
+        #btnWrap {
+        width: 500px;
+        margin: 100px auto;
+      
+        }
+        #popupBtn {
+        width: 150px;
+        height: 50px;
+        padding: 10px 5px;
+        }
+        #modalWrap {
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 300px; /* Location of the box */
+        padding-left: 1300px;
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgba(221, 221, 221, 0.4); /* Black w/ opacity */
+        }
+        #modalBody {
+        width: 350px;
+        height: 400px;
+        padding: 30px 30px;
+        margin: 0 auto;
+        border-radius: 10px;
+        background-color: #fff;
+        overflow-y: scroll;
+        -ms-overflow-style: none; /* 인터넷 익스플로러 */
+        scrollbar-width: none; /* 파이어폭스 */
+        }
+        #modalBody::-webkit-scrollbar {
+            display: none; /* 크롬, 사파리, 오페라, 엣지 */
+        }
+        #closeBtn {
+        float:right;
+        font-weight: bold;
+        color: #777;
+        font-size:25px;
+        cursor: pointer;
+        }
+        #icon-alarm {
+            font-size: 20px;
+            vertical-align: bottom;
+            color: rgb(255, 208, 0);
+        }
+        #modalSub {
+            margin-top: 0.75em;
+            border-top: 0.2px solid #777;            
+        }
+        .modalList {
+            padding: 20px;        
+        }
+        .modalList:hover {
+            background-color:  rgba(221, 221, 221, 0.4);    
+        }
+        .modalSub-noAlarm {
+            text-align: center;
+            margin-top: 30%;
+            line-height: 200%;
+            color: rgba(221, 221, 221);    
+        }
+        #no-alarm {
+            font-size: 5em;
+        }
+      </style>
+</head>
+<body>
+
+    <!-- 팝업띄우는 버튼 -->
+    <div id="btnWrap">
+    <button typ="button" id="popupBtn">모달 팝업 띄우기</button> <!--팝업을 띄우기 위한 버튼 -->
+    </div>
+
+    <!-- 모달 팝업창 -->
+    <div id="modalWrap">
+      <div id="modalContent">
+        <div id="modalBody">
+          <div>
+              <span id="closeBtn">&times;</span> <!-- 닫기 버튼 -->
+              <b><ion-icon id="icon-alarm" name="notifications"></ion-icon> 알림</b> <!-- 팝업창 내 글귀 --> 
+          </div>
+          <div id="modalSub">  
+            <!-- 알람 있을 때 -->
+            <!--
+            <div class="modalList">스크롤 하면 아래로 내려갑니다 ୧⁎ᵕᴗᵕ⁎୨</div>
+            <div class="modalList">"철철철수"님으로부터 후기가 도착했습니다</div>
+            <div class="modalList">"짱짱인재"님으로부터 채팅이 있습니다</div>
+            <div class="modalList">"뉴발 신발" 게시물이 반복 게시물 사유로 미노출 처리되었습니다</div>            
+            <div class="modalList">"철철철수"님으로부터 후기가 도착했습니다</div>
+            <div class="modalList">"짱짱인재"님으로부터 채팅이 있습니다</div>
+            <div class="modalList">"뉴발 신발" 게시물이 반복 게시물 사유로 미노출 처리되었습니다</div> 
+            -->
+            <!-- 알람 없을 때 -->
+           <div class="modalSub-noAlarm">
+                <ion-icon id="no-alarm" name="notifications-circle-outline"></ion-icon>
+                <p>최근 알림이 없습니다</p>
+           </div>
+
+          </div>
+        </div>       
+      </div>
+    </div>
+
+
+
+    <script>
+    const btn = document.getElementById('popupBtn');
+    const modal = document.getElementById('modalWrap');
+    const closeBtn = document.getElementById('closeBtn');
+    
+    btn.onclick = function() {
+      modal.style.display = 'block';
+    }
+    closeBtn.onclick = function() {
+      modal.style.display = 'none';
+    }
+    
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+    
+    </script>
+</body>
+
+</html>
+
+<a href="https://www.flaticon.com/kr/free-icons/" title="미소 아이콘">미소 아이콘  제작자: Pixel perfect - Flaticon</a>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16_DisplayFlex.html</title>
+    <link rel="stylesheet" href="./sheets/css16.css">
+</head>
+<body>
+    
+    <h3># display: flex</h3>
+
+    <ul>
+        <li>내부 요소들의 크기를 유연하게 자동으로 조절해주는 display 속성</li>
+        <li>
+            flex로 설정한 요소는 flex-container가 되고
+            해당 컨테이너 내부의 요소들은 flex-item이 된다
+        </li>
+    </ul>
+
+    <div id="container1" class="flex-container">
+        <!-- flex items-->
+        <div>1</div> 
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+
+    <h3># flex-direction</h3>
+    
+    <p>flex-item들의 방향과 순서를 설정할 수 있는 속성값</p>
+
+    <h5>* flex-direction: row (default)</h5>
+    <div id="container2" class="flex-container">
+        <!-- flex items-->
+        <div>1</div> 
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+
+    <h5>* flex-direction: row-reverse</h5>
+    <div id="container3" class="flex-container">
+        <!-- flex items-->
+        <div>1</div> 
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+
+    <h5>* flex-direction: column</h5>
+    <div id="container4" class="flex-container">
+        <!-- flex items-->
+        <div>1</div> 
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+
+    <h5>* flex-direction: column-reverse</h5>
+    <div id="container5" class="flex-container">
+        <!-- flex items-->
+        <div>1</div> 
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+
+    <h3># flex-wrap</h3>
+   
+    <h5>* flex-wrap: nowrap (default, 줄 바꾸기 허용 안함)</h5>    
+    <div id="flex-wrap3" class="flex-container">        
+        <div>1</div> 
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+    </div>
+
+    <h5>* flex-wrap: wrap (줄 바꾸기 허용)</h5>  
+    <div id="flex-wrap1" class="flex-container">        
+        <div>1</div> 
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>       
+    </div>
+
+    <h5>* flex-wrap: wrap-reverse (줄 바꾸기 허용인데 거꾸로)</h5>  
+    <div id="flex-wrap2" class="flex-container">        
+        <div>1</div> 
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>        
+    </div>
+
+
+    <h5>* flex-wrap: wrap + flex-direction : column</h5>  
+    <div id="flex-wrap4" class="flex-container">        
+        <div>1</div> 
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>      
+    </div>
+
+
+
+</body>
+</html>

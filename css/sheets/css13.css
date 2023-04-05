@@ -1,0 +1,44 @@
+#ex {
+    font-size: 25px;
+}
+
+/* 첫 번째 글자만 선택 */
+#ex::first-letter {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* 첫 번째 줄만 선택 */
+#ex::first-line {
+    line-height: 55px;
+    text-decoration: underline 2px solid black;
+}
+
+/* 해당 요소의 블록지정 부분만 선택 */
+#ex::selection {
+    color: white;
+    background-color: red;
+}
+
+/* 해당 요소의 맨 앞 부분을 선택 */
+#ex::before {
+    content: "Hi!";
+}
+
+/* 해당 요소의 맨 뒷 부분을 선택 */
+#ex::after {
+    content: "Bye!";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

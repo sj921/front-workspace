@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portfolio.html</title>
+    <link rel="stylesheet" href="./portfolio.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://kit.fontawesome.com/d04567b543.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <header id="header">
+    <nav>
+      <a href="#"><h2 class="logo"><i class="fa-solid fa-display"></i> Suji's-Portfolio</h2></a>      
+      <ul class="menu">       
+        <li data-link="#menu1"><a href="#menu1"><span>about</span></a></li>    
+        <li data-link="#menu2"><a href="#menu2"><span>resume</span></a></li>    
+        <li data-link="#menu3"><a href="#menu3"><span>portfolio</span></a></li>                     
+      </ul>    
+    </nav>    
+  </header>
+
+  <main id="main-container">
+    <div class="support-scrollsnap">  
+    <!--menu1 start-->
+      <div id="menu1" class="content">
+        <article>
+          <h3 id="subtitle">about me</h3>
+
+          <div class="a-container">
+            <div id="a-header">
+              <div>Web Developer</div>
+              <div>
+                안녕하세요. 신입 백엔드 개발자 김수지입니다.
+              </div>                
+            </div>
+
+            <div id="a-main">
+              <div class="profile-img">
+                <img class="profile-img-img" src="./images/image_ksj.jpg" alt="">
+              </div>
+            </div>
+
+            <div id="a-aside">
+              <div>
+                웹 브라우저를 통해 사람들을 연결하고, <br>
+                일상 속 기술로 타인을 도울 수 있다는 점이 <br>
+                개발자를 꿈꾸는 계기가 되었습니다. <br><br>
+                이를 위해 꾸준히 공부한 내용을 기록하고 있으며, <br>
+                관련된 기술을 적용해 필요한 프로그램에 적용해보는 것을 좋아합니다. <br><br>
+                현재 신입 백엔드 개발자로 구직중입니다.
+              </div>  
+            </div>
+
+            <div id="a-footer">
+              <div class="table">
+                <table>
+                  <tr>
+                    <td><i class="fa-regular fa-user"></i> 김수지</td>                  
+                    <td><i class="fa-solid fa-mobile-screen"></i> 010-9198-6691</td>                
+                    <td><a href="https://github.com/sj921"><i class="fa-brands fa-github"></i> github.com/sj921</a></td>
+                  </tr>
+                  <tr>                  
+                    <td><i class="fa-solid fa-calendar-days"></i> 1990.02.01.</td>                  
+                    <td><i class="fa-regular fa-envelope"></i> sj_921@naver.com</td>
+                    <td><a href="https://velog.io/@susie_k"><img src="data:image/png;base64,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" alt="벨로그로고" width="16" height="16"> velog.io/@susie_k</a></td>
+                  </tr>
+                  <tr>
+                    <td><i class="fa-solid fa-location-dot"></i> 경기도 남양주시</td>    
+                    <td></td> 
+                    <td><a href="https://www.notion.so/IT_-cc19cf47adea452dae0615c6df940be2"><img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png" alt="노션로고" width="16" height="16"> Notion</a></td>
+                  </tr>
+                </table>
+
+              </div>
+            </div> 
+            
+          </div>
+        </article>
+
+      </div> <!--menu1 end-->
+
+      <hr>
+
+      <!--menu2 start-->
+      <div id="menu2" class="content">
+        <article>
+          <h3 id="subtitle">resume</h3>          
+          
+          <h4># 학력</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>재학기간</th>
+                <th>구분</th>
+                <th>학교명(소재지)</th>
+                <th>전공</th>
+                <th>학점</th>
+              </tr>
+            </thead>  
+            <tr>
+              <td>2009.03. ~ 2015.02.</td>
+              <td>졸업</td>
+              <td>덕성여자대학교(서울)</td>
+              <td>회계학</td>
+              <td>3.5/4.5</td>
+            </tr>          
+          </table>
+          <br>
+          <table>
+            <thead>
+              <tr>
+                <th>재학기간</th>
+                <th>구분</th>
+                <th>학원명</th>
+                <th>전공</th>
+                <th>지역</th>
+              </tr>
+            </thead>  
+            <tr>
+              <td>2022.10. ~ 2023.03.</td>
+              <td>수료</td>
+              <td>이젠아카데미(학원)</td>
+              <td>프로젝트기반 자바풀스텍 개발과정</td>
+              <td>경기</td>
+            </tr>          
+          </table>
+
+          <table>
+            <h4># 보유 기술</h4>
+            <thead>
+              <tr>
+                <th colspan="2">[ Develops ]</th>
+                <th colspan="2">[ Devops ]</th>
+              </tr>
+            </thead>           
+            <tr>
+              <td><i class="fa-brands fa-java"></i></td>   
+              <td>JAVA</td>
+              <td><img src="https://cdn-icons-png.flaticon.com/512/5969/5969096.png" alt="" width="35"></td>  
+              <td>Oracle</td> 
+            </tr>
+            <tr>
+              <td><img src="https://cdn-icons-png.flaticon.com/512/29/29540.png" alt="" width="35"></td>       
+              <td>JSP</td> 
+              <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVjdqJ7_t4dFKzshCYnav5YmM69hrx69HZJ037kjw6FrEpmASXMS35EZsYKAguzp7829M&usqp=CAU" alt="" width="35"></td>
+              <td>Tomcat</td>  
+            </tr>
+            <tr>      
+              <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlSUsRFCOV3ZkjUQehfFiRB_xGMCNrSH6G6A&usqp=CAU" alt="" width="35"></td>  
+              <td>Spring</td>
+              <td><i class="fa-brands fa-aws"></i></td>  
+              <td>AWS</td>
+            </tr>
+            <tr>
+              <td><i class="fa-brands fa-js"></i></td> 
+              <td>Javascript</td> 
+              <td><i class="fa-brands fa-git"></i></td>   
+              <td>Git</td>  
+            </tr>
+            <tr>
+              <td><i class="fa-brands fa-html5"></i></i></td>  
+              <td>HTML</td>
+              <td><i class="fa-brands fa-github"></i></td>
+              <td>Github</td>    
+            </tr>
+            <tr>             
+              <td><i class="fa-brands fa-css3-alt"></i></td> 
+              <td>CSS</td> 
+            </tr>
+ 
+          </table>
+        </article>
+      </div> <!--menu2 end-->
+
+      <hr>
+
+      <!--menu3 start-->
+      <div id="menu3" class="content">
+        <article>
+          <h3 id="subtitle">portfolio</h3>
+          <!--포트폴리오 이미지 슬라이드-->
+          <div class="slidebox">
+            <input type="radio" name="slide" id="slide01" checked>
+            <input type="radio" name="slide" id="slide02">
+            <input type="radio" name="slide" id="slide03">
+            <input type="radio" name="slide" id="slide04">
+            <ul class="slidelist">
+              <li class="slideitem">
+                <a href="https://github.com/sj921/library_management_program_"><img src="./images/slide01.png"></a>
+              </li>
+              <li class="slideitem">
+                <a><img src="./images/slide02.jpg"></a>
+              </li>
+              <li class="slideitem">
+                <a><img src="./images/slide03.jpg"></a>
+              </li>
+              <li class="slideitem">
+                <a><img src="./images/slide04.jpg"></a>
+              </li>
+              
+            </ul>
+            <div class="slide-control">
+              <div class="control01">
+                <label for="slide04" class="prev"></label>
+                <label for="slide02" class="next"></label>
+              </div>
+              <div class="control02">
+                <label for="slide01" class="prev"></label>
+                <label for="slide03" class="next"></label>
+              </div>
+              <div class="control03">
+                <label for="slide02" class="prev"></label>
+                <label for="slide04" class="next"></label>
+              </div>
+              <div class="control04">
+                <label for="slide03" class="prev"></label>
+                <label for="slide01" class="next"></label>
+              </div>
+            </div>
+          </div> <!--menu3 end-->
+        </div>
+  </main>
+
+<script>
+  document.querySelector('.menu').addEventListener('click',e=>{
+    if(e.target.nodeName === 'LI'){
+      let id_value = e.target.dataset.link;
+      document.querySelector(id_value).scrollIntoView({behavior : 'smooth'});
+    }
+  });
+</script>   
+  
+
+
+</body>
+</html>

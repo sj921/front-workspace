@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Simple Autocompleter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+<style>
+
+#example-logo {display: block;position: fixed;bottom: 0;right: 0;z-index: 10;width: 120px;padding: 15px 20px;font-family: sans-serif;font-size: 11px;background-color: rgba(255,255,255,0.7);text-decoration: none;color: inherit;}#example-logo img {width: 100%;margin-top: 4px}</style>
+    <style>
+        
+
+        #autocomplete {
+            width: 300px;
+        }
+        input {display: block;border: 1px solid #ddd;box-sizing: border-box;padding: 8px;width: 100%;font-size: 18px;font-family: sans-serif;}
+        #autocomplete-suggestions {background-color: #ddd;border: 1px solid #ddd;border-top: 0;width: 100%;box-sizing: border-box;font-family: sans-serif;display: none;max-height: 120px;overflow-y: auto;position: relative;}
+        ul { list-style: none;padding: 0;margin: 0;}
+        li, #autocomplete-suggestions div {padding: 8px;}
+        li:hover {background-color: orange;}
+        li.hl {background-color: orange}
+    </style>
+
+</head>
+<body>
+
+<div id="autocomplete">
+    <input type="text" id="autocomplete-input" placeholder="search_input">
+    <div id="autocomplete-suggestions"></div>
+</div>    
+<a id="example-logo" href="/" target="_top">powered by<img src="/Images/logo-black.svg" alt="Logo"></a>
+
+<script>
+   
+   const inputArea = document.getElementById("autocomplete-input");
+const suggestionsBox = document.getElementById("autocomplete-suggestions");
+let cache = "";
+
+function hideSuggestionsBox() {
+    suggestionsBox.innerHTML = "";
+    suggestionsBox.style.display = "none";
+}
+
+function fillSearch(suggestions) {
+    const suggestionList = suggestions.map(suggestion => `<li>${suggestion.value}</li>`);
+    suggestionsBox.innerHTML = suggestionList.join("");
+    suggestionsBox.style.display = "block";
+}
+
+function loadData(input) {
+    const url = `https://completion.amazon.com/api/2017/suggestions?session-id=135-3077052-6015425&customer-id=&request-id=DMRETXPQ3PZJQ5TKYSWX&page-type=Gateway&lop=en_US&site-variant=desktop&client-info=amazon-search-ui&mid=ATVPDKIKX0DER&alias=aps&b2b=0&fresh=0&ks=undefined&prefix=${input}&event=onFocusWithSearchTerm&limit=11&fb=1&suggestion-type=KEYWORD&suggestion-type=WIDGET&_=1615280967091`;
+
+    if (cache === url) return;
+    else {
+        cache = url;
+        fetch(url)
+            .then((res) => res.json())
+            .then(res => fillSearch(res.suggestions))
+    }
+}
+
+inputArea.oninput = function () {
+    const input = this.value;
+    if (input.length === 0) {
+        hideSuggestionsBox();
+        return;
+    }
+    loadData(input);
+};
+
+suggestionsBox.onclick = function (e) {
+    // if clicked on a suggestion, select it
+    if (e.target.nodeName === "LI") {
+        inputArea.value = e.target.innerHTML;
+        hideSuggestionsBox();
+    }
+}
+
+let suggestionHighlighted = -1;
+
+inputArea.onkeydown = function (e) {
+    const suggestionElements = suggestionsBox.querySelectorAll("li");
+
+    // down key is pressed
+    if (e.keyCode === 40) {
+        e.preventDefault();
+        if (suggestionHighlighted === suggestionElements.length - 1) {
+            return;
+        }
+        suggestionHighlighted++;
+        suggestionElements[suggestionHighlighted].classList.add("hl");
+        if (suggestionHighlighted > 0) {
+            suggestionElements[suggestionHighlighted - 1].classList.remove("hl");
+        }
+    }
+
+    // up key is pressed
+    if (e.keyCode === 38) {
+        e.preventDefault();
+        if (suggestionHighlighted === -1) {
+            return;
+        }
+        suggestionElements[suggestionHighlighted].classList.remove("hl");
+        suggestionHighlighted--;
+        if (suggestionHighlighted > -1) {
+            suggestionElements[suggestionHighlighted].classList.add("hl");
+        }
+    }
+
+    // enter key is pressed
+    if (e.keyCode === 13) {
+        e.preventDefault();
+        if (suggestionHighlighted > -1) {
+            inputArea.value = suggestionElements[suggestionHighlighted].innerHTML;
+            hideSuggestionsBox();
+            suggestionHighlighted = -1;
+        }
+    }
+};
+
+inputArea.onblur = function () {
+    setTimeout(() => {
+        hideSuggestionsBox();
+        suggestionHighlighted = -1;
+    }, 100);
+};
+
+    </script>
+</body>
+</html>

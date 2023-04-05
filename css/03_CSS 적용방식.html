@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_CSS 적용방식.html</title>
+    <style>
+        #dt1 {
+            color: red;
+            font-size: 0.5em; /* inline CSS가 더 우선순위가 높다 */
+        }
+
+        #dt2 {
+            color: cornflowerblue;
+        }
+    </style>
+    <style>
+        #dt2 {
+            color: darkolivegreen;
+        }
+
+        #dt2 {
+            color: indianred; 
+        }
+    </style>
+    <style>        
+        ul {
+            list-style-type: none;
+            padding: 5px;
+        }
+    </style>
+    <link rel="stylesheet" href="./sheets/css03.css">
+
+</head>
+<body>
+
+    <h3># 페이지에 스타일 시트를 적용하는 방법 3가지</h3>
+
+    <!-- dl>(dt+dd)*3 -->
+    <dl>
+        <dt id="dt1" style="/* CSS */font-size: 25px;">1. inline CSS (줄 내부 CSS)</dt>
+        <dd>
+            - HTML style attribute를 사용하는 방식 <br>
+            - CSS 적용 우선 순위가 가장 높다
+        </dd>
+        <dt id="dt2">2. internal CSS (파일 내부 CSS)</dt>
+        <dd>
+            - 파일 내부의 style tag를 사용하는 방식 <br>
+            - 더 나중에 나온 스타일시트가 앞의 내용을 모두 덮어쓴다 <br>
+        </dd>
+        <dt id="dt3">3. external CSS (파일 외부 CSS)</dt>
+        <dd>
+            - 외부의 .css 파일에서 스타일 시트를 가져와 사용하는 방식 <br>
+            - 외부의 .css 파일을 가져올 때 link tag를 사용한다 <br>
+            - 우선 순위는 internal CSS와 같다
+        </dd>
+    </dl>
+
+    
+    <h1 id="h1">CSS</h1>
+    <h2 id="h2">Selectors</h2>
+
+    <table border="0">
+        <tr>
+            <td>
+                <div id="div1">
+                    a
+                    <div id="div2">
+                        b
+                        <div id="div3-1">
+                            b
+                        </div>
+                    </div>
+                </div>
+            </td>  
+            <td>     
+                <ul>
+                    <li id="li1">a>b Child Combinator</li>
+                    <li id="li2">Select all b elements that are</li>
+                    <li id="li2">directly inside of a elements.</li> 
+                </ul>                        
+            </td>          
+        </tr>
+       
+        <tr>
+            <td>
+                <div id="div1">
+                    a
+                    <div id="div2">
+                        b
+                        <div id="div3-2">
+                            b
+                        </div>
+                    </div>
+                </div>
+            </td>   
+            <td>
+                <ul>
+                    <li id="li1">a b Descendent Combinator</li>              
+                    <li id="li2">Select all b elements that are</li>
+                    <li id="li2">anywhere inside of a elements.</li>
+                </ul>
+            </td>         
+        </tr>
+
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

@@ -1,0 +1,16 @@
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+li {
+    padding: 5px;
+    margin: 15px;
+    border: solid black 1px;
+}
+
+
+
+
+
+

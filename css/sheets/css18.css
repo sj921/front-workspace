@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+div {
+    border: 1px solid black;
+    padding: 3px;
+}
+
+body {
+    margin: 0;
+}
+
+.grid-container {
+    display: grid;    
+}
+
+#container1 {
+    /*
+        컬럼의 크기에 사용할 수 있는 단위들
+        
+         - 일반 단위들 : %, px, 등등...
+         - fr : 칸을 의미한다 (1fr은 한 칸)
+         - auto : 알아서 균등하게 배분한다 (fr과 함께 쓰면 난리난다)    
+    */
+
+    grid-template-columns: 100px 1fr 1fr 1fr; /* 컬럼의 개수와 각 컬럼의 너비를 지정 */
+    grid-template-rows: 100px 200px 100px; /* 각 행의 높이를 지정 */   
+    column-gap: 10px; /* 각 컬럼 사이의 간격 */    
+    row-gap: 20px; /* 각 행 사이의 간격 */
+    padding: 10px;
+}
+
+
+
+
+
+

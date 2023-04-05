@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/d04567b543.js" crossorigin="anonymous"></script>
+    <style>
+        .hide {
+        display: none !important;
+        }
+
+        input {
+            background-image: url(https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-256.png);
+            background-position: 13px center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            border: 1px solid #ccc;
+            padding: 5px 5px;
+            text-indent: 30px;            
+            width: 210px;            
+        }
+
+        input:focus {
+            background-image: none;
+            background-position: -10px center;
+            text-indent: 0;
+            width: 210px;            
+        }
+
+
+        .rel_search {
+            display:flex;
+            flex-direction:column;
+            justify-content : space-around;
+            border: 1px solid #ccc;   
+            width: 203px;
+            margin-top: 2px;  
+            padding-right: 5px;  
+        }
+
+
+        .pop_rel_keywords {
+            list-style: none;
+            margin-right: 3%;
+            margin:0;
+
+        }
+
+        .pop_rel_keywords > li {
+            text-indent: 5%;
+            line-height : 200%;
+            border-width: 1px;
+            border-color: gainsboro;
+            border: 0 0 1px 0;
+            margin-left: -25%;
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis; 
+            width: 201px;
+        }
+        .pop_rel_keywords > li:hover {
+            background-color: rgb(236, 236, 236);
+            width: 128%;  
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis; 
+           
+        }
+
+        .turnOff {
+           margin-left: 76px;
+           margin-bottom: 10px;
+           font-size: 15px;
+           top: 10%;
+        }
+       
+        @font-face {
+            font-family: 'EF_YOONY';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/EF_YOONY.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        .offBtn {  
+            position: relative;
+            font-family: 'EF_YOONY';      
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 900;
+            color: black;
+            text-decoration: none;       
+            margin-left: 5px;  
+            right: 1.5px;
+            line-height : 200%;
+            padding: 0px 5.8px 1px 5.8px;            
+        }
+
+        .offBtn:hover { 
+            color: darksalmon;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    
+        <input class="search_input" type="search" placeholder="search">
+        <container class = "rel_search" id="rel_search_box">
+            <ul class="pop_rel_keywords">                            
+            </ul>
+            <div class="turnOff">자동완성 끄기<a class="offBtn" href="javacsript:void(0)" onclick="auto_complete_off()">X</a></div>
+        </container>
+    
+        
+
+        <script>
+            const ul = document.querySelector(".pop_rel_keywords");
+        const searchInput = document.querySelector(".search_input");
+        const relContainer = document.querySelector(".rel_search");
+        let cache = '';
+    
+    
+        const checkInput = () => {
+            
+            const beforeInput = searchInput.value;
+            timer(beforeInput);
+                
+            
+        }
+    
+        relContainer.classList.add("hide");
+    
+        const timer = (beforeInput) => {
+           
+    
+            if(document.hasFocus()){
+    
+                    setTimeout(() => {
+                        
+                        if(searchInput.value === beforeInput) {
+                        console.log("입력멈춤");
+                        loadData(searchInput.value);
+                        checkInput();
+                        
+                        } else {
+                        console.log("입력변함");
+                        checkInput();
+                        }
+                    
+                        if(searchInput.value === "") {
+                        relContainer.classList.add("hide");
+                        
+                        } else {
+                        relContainer.classList.remove("hide");
+                        }
+                    }, 50);
+                }
+    
+    
+            }
+       
+    
+    
+        const loadData = (input) => {
+        const url = `https://completion.amazon.com/api/2017/suggestions?session-id=135-3077052-6015425&customer-id=&request-id=DMRETXPQ3PZJQ5TKYSWX&page-type=Gateway&lop=en_US&site-variant=desktop&client-info=amazon-search-ui&mid=ATVPDKIKX0DER&alias=aps&b2b=0&fresh=0&ks=undefined&prefix=${input}&event=onFocusWithSearchTerm&limit=11&fb=1&suggestion-type=KEYWORD&suggestion-type=WIDGET&_=1615280967091`;
+        
+        if(cache === url) return;
+        else {
+        cache = url;
+        fetch(url)
+        .then((res) => res.json())
+        .then(res => fillSearch(res.suggestions))
+        }
+        }
+    
+        const fillSearch = (suggestArr) => {
+        ul.innerHTML = "";
+        suggestArr.forEach((el, idx) => {
+            const li = document.createElement("li");
+            li.innerHTML = el.value;
+            ul.appendChild(li);
+        }) 
+            
+        const liList = document.querySelectorAll(".pop_rel_keywords li");
+
+        liList.forEach((li, idx) => {
+        li.addEventListener("click", () => {
+            selected = idx;
+            searchInput.value = li.innerHTML;
+            relContainer.classList.add("hide");
+        });
+        });
+        }
+    
+        const highlightText = () => {
+    
+    
+        }
+        searchInput.onfocus = function(e){
+            checkInput();
+        };
+    
+        searchInput.onblur = function(e){
+               
+        };
+    
+    
+        function auto_complete_off(){
+            document.getElementById('rel_search_box').style.display='none';
+        }
+
+// 키보드 방향키 이벤트 처리
+searchInput.addEventListener("keydown", (e) => {
+    const liList = document.querySelectorAll(".pop_rel_keywords li");
+    
+    if (e.keyCode === 38) { // 위 방향키
+        e.preventDefault(); // 기본 이벤트 제거
+        let selected = document.querySelector(".selected"); // 선택된 li 요소 찾기
+        
+        if (selected) {
+            // 선택된 li 요소가 있으면, 그 이전 li 요소를 선택
+            selected.classList.remove("selected");
+            if (selected.previousElementSibling) {
+                selected.previousElementSibling.classList.add("selected");
+                searchInput.value = selected.previousElementSibling.textContent;
+            } else {
+                liList[liList.length - 1].classList.add("selected");
+                searchInput.value = liList[liList.length - 1].textContent;
+            }
+        } else {
+            // 선택된 li 요소가 없으면, 마지막 li 요소를 선택
+            liList[liList.length - 1].classList.add("selected");
+            searchInput.value = liList[liList.length - 1].textContent;
+        }
+    } else if (e.keyCode === 40) { // 아래 방향키
+        e.preventDefault(); // 기본 이벤트 제거
+        let selected = document.querySelector(".selected"); // 선택된 li 요소 찾기
+        
+        if (selected) {
+            // 선택된 li 요소가 있으면, 그 다음 li 요소를 선택
+            selected.classList.remove("selected");
+            if (selected.nextElementSibling) {
+                selected.nextElementSibling.classList.add("selected");
+                searchInput.value = selected.nextElementSibling.textContent;
+            } else {
+                liList[0].classList.add("selected");
+                searchInput.value = liList[0].textContent;
+            }
+        } else {
+            // 선택된 li 요소가 없으면, 첫번째 li 요소를 선택
+            liList[0].classList.add("selected");
+            searchInput.value = liList[0].textContent;
+        }
+    }
+});
+
+
+
+
+    
+        </script>
+    </body>
+    </html>

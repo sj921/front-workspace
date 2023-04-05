@@ -1,0 +1,91 @@
+
+#paragraph01 {
+    text-align: justify;
+    padding: 15px;
+}
+
+
+#paragraph01 > img:first-child {
+    float: left;
+    height: 300px;
+    margin: 15px;
+    
+}
+
+/* 두 번째 이미지는 왼쪽에 아무것도 없었으면 좋겠다 -> clear:left; */
+#paragraph01 > img:nth-child(2) {
+    float: right;
+    height: 300px;
+    margin: 15px;
+    clear: left;
+}
+
+#paragraph01::after {
+    content: "";   
+    clear: both;
+
+    /* 해당 요소를 div처럼 취급하도록 만듦 (원래는 글자 취급) */
+    display: block; 
+}
+
+
+#paragraph02 {
+    background-color: skyblue;
+    padding: 10px;
+}
+
+#paragraph02::after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+#paragraph02 > div {
+    box-sizing: border-box;
+    float: left;
+    width: 25%;
+    height: 100px;
+    border: solid 3px black;
+    border-radius: 5px;
+    background-color: tomato;
+}
+
+
+#paragraph02 > div:first-child {
+    width: 100%;
+    background-color: sandybrown;
+    
+}
+
+
+#paragraph02 > div:nth-child(2) {
+    width: 15%;
+    height: 700px;
+    background-color: cadetblue;
+}
+
+#paragraph02 > div:nth-child(3) {
+    width: 55%;
+    height: 350px;
+    background-color: coral;
+}
+
+#paragraph02 > div:nth-child(4) {
+    width: 30%;
+    height: 350px;
+    background-color: crimson;
+}
+
+#paragraph02 > div:nth-child(5) {
+    width: 40%;
+    height: 350px;
+    background-color: darkslateblue
+}
+
+#paragraph02 > div:nth-child(6) {
+    width: 45%;
+    height: 350px;
+    background-color: beige
+}
+
+

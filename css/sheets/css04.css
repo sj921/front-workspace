@@ -1,0 +1,63 @@
+div {
+    border: solid black 3px;
+    height: 300px;
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+/* 요소 배경에 이미지 넣기 */
+div:first-child {
+    /* 배경 이미지 주소 설정 */
+    background-image: url('https://cdn.huffingtonpost.kr/news/photo/202101/105669_198798.jpeg');
+
+    /* 배경 이미지 크기 설정 */
+    /* background-size: 200px; */
+    background-size: auto 310px; /* 가로 크기 자동, 세로 크기 310px로 설정 */
+
+    /* 배경 이미지 반복 여부 설정 */
+    background-repeat: no-repeat;
+    
+    /* 배경의 위치 설정 */
+    background-position: right;
+}
+
+div:nth-child(2) {
+    background-image: url('https://cdn.huffingtonpost.kr/news/photo/202101/105669_198798.jpeg');
+    background-size: 100px;
+    background-repeat: repeat-x;
+    background-position: center;
+}
+
+div:nth-child(3) {
+    background-image: url('https://cdn.huffingtonpost.kr/news/photo/202101/105669_198798.jpeg');
+    background-size: 100px;
+    background-repeat: repeat-y;
+    background-position: 80%;
+}
+
+
+/* cover : 배경의 크기를 해당 요소를 완벽하게 덮을 수 있는 크기로 조절한다 */
+div:nth-child(4) {
+    background-image: url('https://cdn.huffingtonpost.kr/news/photo/202101/105669_198798.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;    
+}
+
+/* contain : 해당 요소 내부에 전부 포함될 수 있는 크기로 조절된다 */
+div:nth-child(5) {
+    background-image: url('https://cdn.huffingtonpost.kr/news/photo/202101/105669_198798.jpeg');
+    background-size: contain;
+    background-repeat: no-repeat;    
+}
+
+/* attachment: fixed로 배경을 고정시키는 효과를 줄 수 있다 */
+div:nth-child(6) {
+    background-image: url('https://cdn.huffingtonpost.kr/news/photo/202101/105669_198798.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;    
+    background-attachment: fixed;
+}
+
+
+
+

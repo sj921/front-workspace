@@ -1,0 +1,5 @@
+
+[onclick] {
+    cursor : pointer;   /* cursor : 마우스 커서 모양 변경 */
+    user-select: none;  /* 블록 지정 금지 */
+}

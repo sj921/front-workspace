@@ -1,0 +1,30 @@
+html {
+    font-size: 15px; /* rem은 이 크기에 비례하여 크기를 조절한다 */
+}
+
+div {
+    border: solid 1px black;
+}
+
+[id$="m"] {
+    font-size: 25px;
+}
+
+#em {
+    width: 15em;
+}
+
+#rem {
+    width: 15rem;
+}
+
+#vw {
+    width: 15vw;
+    height: 15vw;
+}
+
+#vh {
+    width: 15vh;
+    height: 15vh;
+}
+

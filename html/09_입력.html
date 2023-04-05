@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09_입력.html</title>
+</head>
+<body>
+    
+    <h3># input 태그를 사용해 다양한 입력을 받을 수 있다</h3>
+
+    <!-- table>tr>th*4 (Child Emmet) -->
+    <!-- table+tr+th (Sibling Emmet) -->
+    <table border="3">
+        <tr>
+            <th>Type</th>
+            <th>Sample</th>
+            <th>Description</th>
+            <th>Usage</th>
+        </tr>
+        <tr>
+            <td>type="text"</td>
+            <td><input type="text"></td>
+            <td>일반 텍스트 입력칸</td>
+            <td>아이디, 글 제목</td>
+        </tr>
+        <tr>
+            <td>type="password"</td>
+            <td><input type="password"></td>
+            <td>비밀번호 입력 칸</td>
+            <td>비밀번호</td>
+        </tr>
+        <tr>
+            <td>type="radio"</td>
+            <td>
+                <!-- 라디오 버튼의 카테고리를 name 속성으로 지정해줘야 올바르게 동작한다 -->
+                <!-- 라디오 버튼의 id 속성을 설정하고 라벨을 지정해줄 수 있다 -->
+                <!-- 한 페이지 내에서 요소의 id 속성 중복이 발생하지 않도록 주의해야 한다 -->
+                <input type="radio" name="samkim" id="hotbul"> 
+                <label for="hotbul">고추장불고기</label> <br>
+                <input type="radio" name="samkim" id="tunamayo"> 
+                <label for="tunamayo">참치마요</label> <br>
+                <input type="radio" name="samkim" id="bibim"> 
+                <label for="bibim">전주비빔</label> <br>
+                <input type="radio" name="samkim" id="fisheggmayo"> 
+                <label for="fisheggmayo">명란마요</label> <br>
+            </td>
+            <td>
+                여러가지 중 하나만 선택할 수 있는 버튼
+            </td>
+            <td>
+                성별, 연령대 등
+            </td>
+        </tr>
+        <tr>
+            <td>type="checkbox"</td>
+            <td>
+                <input type="checkbox" name="hobby" id="music">
+                <label for="music">음악감상</label> <br>
+                <input type="checkbox" name="hobby" id="movie">
+                <label for="movie">영화</label> <br>
+                <input type="checkbox" name="hobby" id="drama">
+                <label for="drama">드라마</label> <br>
+                <input type="checkbox" name="hobby" id="book">
+                <label for="book">책</label> <br>
+            </td>
+            <td>
+                같은 카테고리 내에서 여러가지를 동시에 선택할 수 있는 버튼
+            </td>
+            <td>관심분야 등</td>
+        </tr>
+        <tr>
+            <td>type="date"</td>
+            <td><input type="date"></td>
+            <td>날짜를 입력받는 칸</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                &lt;input&gt;에는 이 외에도 많은 type들이 있다....
+            </td>
+        </tr>
+        <tr>
+            <td>&lt;textarea&gt;</td>
+            <td>
+                <textarea cols="30" rows="10"></textarea>
+            </td>
+            <td>긴 내용의 텍스트를 입력받을 수 있는 태그 (input 태그 아님)</td>
+            <td>글 내용, 문의 내용</td>
+        </tr>
+        <tr>
+            <td>&lt;select&gt;, &lt;option&gt;</td>
+            <td>
+                직책 : <select>
+                    <option value="">IT</option>
+                    <option value="">Finance</option>
+                    <option value="">Clerk</option>
+                </select>
+            </td>
+            <td>
+                여러 옵션 중 하나를 선택할 수 있음
+            </td>
+            <td>
+                주로 외래키 컬럼 (정해진 것 안에서 골라야 하는 경우)
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

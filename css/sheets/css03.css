@@ -1,0 +1,93 @@
+dl > dt + dd:last-child {
+    color: orange;
+    font-size: 1.1rem;
+}
+
+#dt1 {
+    font-size: 11px;
+}
+
+#dt2 {
+    color: chartreuse;
+    background-color: black;
+}
+
+#dt3 {
+    color: blue;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+/**/
+
+#h1 {
+    color:green;   
+    font-weight: bold;
+    line-height: 20%;
+    font-size: 50px;       
+}
+
+#h2 {
+    color:green;
+    font-size: 35px;
+    font-weight: bold; 
+    line-height: 0%;
+}
+
+#div1 {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;      
+    width: 100px;
+    height: 100px; 
+   
+    
+}
+
+#div2 {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: green; 
+    color:white;     
+    width: 75px;
+    height: 75px;
+    position: relative;	
+	left: 20%;
+    
+}
+
+#div3-1 {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;    
+    color: black;      
+    width: 40px;
+    height: 40px;   
+    position: relative;	
+	left: 40%;
+    top: 10%;      
+}
+
+#div3-2 {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: green;
+    color:white;           
+    width: 40px;
+    height: 40px;  
+    position: relative;	
+	left: 40%;
+    top: 10%;    
+}
+
+#li1 {
+    color:green;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 1px;
+}
+
+#li2 {    
+    font-size: 20px;
+    margin-bottom: 1px;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OddOrEvenGame.html</title>
+</head>
+<body>
+    
+    <h3># 홀짝 게임</h3>
+
+    <ul>
+        <li>자바스크립트로 웹 페이지 상에서 동작하는 간단한 홀짝 게임을 만든다</li>
+        <li>
+            나중에 웹 브라우저를 껐다 키더라도 이름 등의 진행 상황들을
+            그대로 이어갈 수 있도록 만들 것
+        </li>
+    </ul>
+
+    <button onclick="setAsset();">초기 비용 셋팅</button>
+    <button onclick="startGame();">홀짝 게임 시작</button><br/>
+
+    <div>소유 금액: <span id="asset">0</span> 원</div>
+
+    <script>     
+                
+        let name = null;
+
+        if ((name = localStorage.getItem('name')) === null) {
+            const name = prompt('당신의 이름은?'); 
+            localStorage.setItem('name', name);
+        } else {
+            alert(name + '님 환영합니다!!');
+            localStorage.getItem('name', name);
+            localStorage.getItem('asset', asset); 
+        }
+
+        let asset = 0;               
+                 
+        function setAsset(){
+    
+            if(asset != 0 || asset >= 1000000){       
+                alert("초기화 조건을 만족하지 못합니다.");        
+                return;        
+            }
+        
+            asset = 300000;
+             
+            document.getElementById("asset").innerHTML=asset;      
+        }      
+                
+        
+        function startGame(){       
+        
+            if(asset <= 0 || asset >= 1000000){            
+                alert("게임이 종료 되었습니다.");            
+                return;                        
+            }
+                        
+            let bet = parseInt(prompt("게임에 걸 판돈을 입력 하세요.", 0));
+            
+            if(bet > asset){
+                alert("판돈은 자산보다 많은 돈을 입력할 수 없습니다.");            
+                return;        
+            }
+        
+            if(bet <= 0){            
+                alert("판돈은 음수를 입력할 수 없습니다.");                
+                return;            
+            }      
+        
+            let input = prompt("홀/짝을 입력 하시오","홀");           
+            let com = parseInt(Math.random() * 2 + 1);        
+                   
+            if((input == "홀" && com == 1) || (input == "짝" && com == 2)){            
+                alert("당신의 승리 입니다.");                
+                asset += bet;                
+                document.getElementById("asset").innerHTML=asset;  
+                localStorage.setItem('asset', asset);          
+            } else {            
+                alert("당신의 패배 입니다.");                
+                asset -= bet;                
+                document.getElementById("asset").innerHTML=asset;     
+                localStorage.setItem('asset', asset);             
+            }
+
+
+
+         
+        }
+
+    </script>
+
+
+</body>
+</html>

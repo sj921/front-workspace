@@ -1,0 +1,476 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=El+Messiri:wght@500&family=Gowun+Dodum&display=swap');
+
+
+*{
+  padding:0px;
+  margin:0px;  
+}
+
+a {
+  
+  text-decoration: none; /* 링크의 밑줄 제거 */
+  color: inherit; /* 링크의 색상 제거 */
+}
+
+header {
+  position: fixed;
+  z-index: 20;
+  width: 100vw;
+}
+
+.logo{
+  float:left;
+  width:220px;
+  margin-left:20px;
+  margin-top:5px;
+  color: black;
+  font-family: 'El Messiri', sans-serif;
+}
+
+nav{
+  background-color:#DBEBF4;
+  height:50px;
+  padding:5px 5px 0 50px;
+  display:block;  
+  width:100%;
+}
+
+nav ul{
+    float:right;
+    margin-top:10px;
+    margin-right: 100px;
+}
+
+nav li{
+    display:inline-block;
+    padding: 0px 10px 0 20px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+/* 메뉴바에 효과 넣기*/
+.menu a {
+  padding: 10px 20px;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  -webkit-transition: 0.3s ease-out;
+  -moz-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
+}
+
+.menu a span:before {
+  width: 5px;
+  height: 5px;
+  background: transparent;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-top: 2px solid #218c74;
+  border-left: 2px solid #218c74;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.menu a span:after {
+  width: 6px;
+  height: 6px;
+  background: transparent;
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-right: 2px solid #218c74;
+  border-bottom: 2px solid #218c74;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.menu a:before {
+  width: 6px;
+  height: 6px;
+  background: transparent;
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-right: 2px solid #218c74;
+  border-top: 2px solid #218c74;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.menu a:after {
+  width: 6px;
+  height: 6px;
+  background: transparent;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-left: 2px solid #218c74;
+  border-bottom: 2px solid #218c74;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.menu a:hover {
+  color: #218c74;
+}
+
+.menu a:hover:before {
+  opacity: 1;
+  right: 5px;
+  top: 5px;
+}
+
+.menu a:hover:after {
+  opacity: 1;
+  left: 5px;
+  bottom: 5px;
+}
+
+.menu a:hover span:before {
+  opacity: 1;
+  left: 5px;
+  top: 5px;
+}
+
+.menu  a:hover span:after {
+  opacity: 1;
+  right: 5px;
+  bottom: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Main */
+.content {
+  background : white;
+  padding: 90px 0 0 30px;
+  display: flex;
+  justify-content: center;
+  align-content: center;  
+}
+
+/* 제목에 효과 넣기 */
+#subtitle {
+  text-align: center;
+      font-size:30px; font-weight:700; color:#222; letter-spacing:1px;
+      text-transform: uppercase;
+  
+      display: grid;
+      grid-template-columns: 1fr max-content 1fr;
+      grid-template-rows: 27px 0;
+      grid-gap: 20px;
+      align-items: center;
+  }
+  
+  #subtitle:after,#subtitle:before {
+      content: " ";
+      display: block;
+      border-bottom: 1px solid #DBEBF4;
+      border-top: 1px solid #DBEBF4;
+      height: 5px;
+    background-color:#ffffff;
+  }
+
+
+/* 메뉴별 구획 크기 설정*/
+#menu1 {  
+  height: 110vh;  
+}
+#menu2 {
+  height: 130vh;  
+}
+#menu3 {  
+  height: 130vh;  
+}
+
+
+/* 구분선에 효과 넣기 */
+hr {
+  background-color: #fff;
+  padding: 0;
+  margin: 80px;
+  border: 0;
+  border-top: 1px dotted #8c8c8c;
+  border-bottom: 1px dotted #fff;
+}
+
+
+
+/* menu1 - about me */
+
+
+.a-container {
+  display: grid;  
+  
+  /* 그리드 갯수,크기 조정 */
+  grid-template-columns: 1.5fr 3fr;
+  grid-template-rows: 0.8fr 1.5fr 0.8fr;
+
+  
+  /* 그리드 템플릿 */
+  grid-template-areas:
+    "a-header a-header"
+    "a-main a-aside"  
+    "a-footer a-footer"    
+    
+}
+ 
+/* grid-area이름을 지정한다 */
+#a-header { 
+  grid-area: a-header;  
+  padding: 20px;
+  /* border: #218c74 1px solid; */
+  
+}
+
+#a-header div:first-child {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  font-family: 'Gowun Dodum', sans-serif;  
+}
+#a-header > div:last-child {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  font-family: 'Gowun Dodum', sans-serif;  
+}
+
+#a-main   { 
+  grid-area: a-main;
+  padding: 50px;
+  /* border: #218c74 1px solid; */
+   
+}
+
+#a-main .profile-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 70%;
+  box-shadow: 3px 3px#DBEBF4;
+  overflow: hidden;
+}
+
+#a-main .profile-img-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#a-aside { 
+  grid-area: a-aside; 
+  padding: 20px;  
+  /* border: #218c74 1px solid; */
+}
+
+#a-aside > div { 
+  font-size: 1.2em;
+  font-family: 'Gowun Dodum', sans-serif;  
+}
+
+
+#a-footer { 
+  grid-area: a-footer;
+  padding: 20px;
+  /* border: #218c74 1px solid;    */
+}
+
+#a-footer .table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#a-footer table {
+  padding: 5px;
+  text-align: left;
+  padding: 1em .5em;
+  vertical-align: middle;
+  
+}
+
+#a-footer td {  
+  padding-right: 0;
+  width: 270px;
+  font-size: 1.1em;
+  font-family: 'Gowun Dodum', sans-serif;  
+}
+
+#a-footer a:hover {
+  color: cornflowerblue;
+  transition: background 0.5s ease-in-out,
+              color 0.5s ease-in-out;
+
+}
+
+
+
+
+
+
+/* menu2 - skill */
+
+#menu2 h4 {
+  text-align: left;
+  font-weight: 700;
+  line-height: 4;
+  font-family: 'Gowun Dodum', sans-serif;
+}
+
+#menu2 h4:hover {
+  color: cornflowerblue;
+  transition: background 0.5s ease-in-out,
+              color 0.5s ease-in-out;
+}
+
+#menu2 table i {
+  font-size: 30px;
+}
+
+#menu2 table {
+  border: 1px #a39485 solid;
+  font-size: .9em;
+  box-shadow: 0 2px 5px rgba(0,0,0,.25);
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 5px;
+  overflow: hidden;
+}
+  
+#menu2 thead {
+  font-weight: bold;
+  text-transform: uppercase;
+  background: #DBEBF4;
+}
+  
+#menu2 td, th {
+  text-align: center;
+  padding: 1em .5em;
+  vertical-align: middle;
+}
+  
+#menu2 td {
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  background: #fff;
+  width: 180px;
+}
+
+
+
+/* menu3 - portfolio */
+#menu3 h5 {
+  text-align: center;  
+  line-height: 3;
+  font-family: 'Gowun Dodum', sans-serif;
+}
+
+/* 리셋 CSS */
+* {
+  box-sizing:border-box;
+}
+ul, li {
+  list-style:none;
+}
+
+.slidebox {
+  max-width:700px;
+  margin:0 auto;
+  position:relative;
+}
+.slidebox .slidelist {
+  position:relative;
+  white-space:nowrap;
+  font-size:0;
+  overflow:hidden;
+}
+.slidebox .slidelist .slideitem {
+  position:relative;
+  display:inline-block;
+  vertical-align:middle;
+  background-color:#fff;
+  width:100%;
+  transition:all 1s;
+}
+.slidebox .slidelist .slideitem > a {
+  display:block;
+  width:auto;
+  position:relative;
+}
+.slidebox .slidelist .slideitem > a img {
+  max-width:100%;
+}
+
+.slidebox .slide-control [class*="control"] label 
+{position:absolute;
+  z-index:10;
+  top:50%;
+  transform:translateY(-50%);
+  padding:20px;
+  border-radius:50%;
+  cursor:pointer;
+}
+.slidebox .slide-control [class*="control"] label.prev {
+  left:-50px;
+  background:#333 url('./images/left-arrow.png') center center / 50% no-repeat;
+}
+.slidebox .slide-control [class*="control"] label.next {
+  right:-50px;
+  background:#333 url('./images/right-arrow.png') center center / 50% no-repeat;
+}
+
+[name="slide"] {
+  display:none;
+}
+#slide01:checked ~ .slidelist .slideitem {
+  left:0;
+}
+#slide02:checked ~ .slidelist .slideitem {
+  left:-100%;
+}
+#slide03:checked ~ .slidelist .slideitem {
+  left:-200%;
+}
+#slide04:checked ~ .slidelist .slideitem {
+  left:-300%;
+}
+
+.slide-control [class*="control"] {
+  display:none;
+}
+#slide01:checked ~ .slide-control .control01 {
+  display:block;
+}
+#slide02:checked ~ .slide-control .control02 {
+  display:block;}
+#slide03:checked ~ .slide-control .control03 {
+  display:block;
+}
+#slide04:checked ~ .slide-control .control04 {
+  display:block;
+}
+
+
+
+

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14_BOM.html</title>
+</head>
+<body>
+
+    <h3># Browser Object Model (BOM)</h3>
+
+    <ul>
+        <li>웹 브라우저의 기능을 활용하기 위한 객체 (window)</li>
+        <li>DOM도 웹 브라우저 객체의 내부에 존재한다 (window.document)</li>
+        <li>window는 생략이 가능하다</li>
+    </ul>
+
+    <h3># BOM 내부의 여러 객체들</h3>
+
+    <ul>
+        <li>window: 웹 브라우저 최상위 객체</li>
+        <li>window.screen: 모니터에 대한 정보</li>
+        <li>window.document: DOM. 현재 페이지의 HTML코드 구조</li>
+        <li>window.history: 웹 브라우저의 페이지 이동 내역</li>
+        <li>window.location: 현재 웹 브라우저의 위치에 대한 정보</li>
+        <li>window.navigator: 현재 웹 브라우저의 정보</li>
+    </ul>
+
+    <button onclick="back();">Back</button>
+    <button onclick="forward();">Forward</button>
+    <hr>
+    <button onclick="go();">Go</button>
+    <input id="to-go" type="number" value="1">
+    <hr>
+    <button onclick="link();">change location.href</button>
+    
+    <script>
+        console.log(window);
+        console.log('너비:', window.innerWidth);
+        console.log('높이:', window.innerHeight);
+        // window.alert('경고 메세지!');
+       
+        // 모니터에 대한 정보 (screen)
+        console.log(window.screen);
+
+        // 모든 HTML 요소들에 대한 정보 (document)
+        console.log(window.document);
+
+        // 페이지 이동 내역
+        console.log(window.history);
+        console.log(window.history.length)
+
+        function back() {
+            window.history.back();
+        }
+
+        function forward() {
+            window.history.forward();
+        }
+  
+        function go() {
+            const to_go = document.getElementById('to-go');
+            window.history.go(to_go.value);   // +2; forward 두 번
+        }
+
+        // 현재 웹 브라우저가 보고있는 위치(URL)에 대한 정보 (location)
+        console.log(window.location);        
+        console.log(window.location.protocol);
+        console.log(win.location.origin)
+
+        function link() {
+            // 현재 위치를 다른 곳으로 변경 -> 다른 페이지로 이동
+            window.location.href = "https://naver.com"; 
+        }
+
+    </script>
+
+
+
+</body>
+</html>

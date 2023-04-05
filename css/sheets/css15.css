@@ -1,0 +1,56 @@
+div {
+    border: solid black 1px;
+}
+
+span {
+    border: solid black 1px;
+}
+
+.red {
+    color: red;
+    background-color: black;
+}
+
+.important {
+    font-weight: bold;
+}
+
+.inline {
+    display: inline;
+}
+
+.block {
+    display: block;
+}
+
+/* #ex01 > span::after {
+    content: "";   
+    clear: both;
+    /* 해당 요소를 div처럼 취급하도록 만듦 (원래는 글자 취급) */
+    display: block; 
+} */
+
+
+
+#ex01 > span {
+    background-color: blue;
+    color: white;
+    padding: 30px;
+    margin: 20px;
+}
+
+#ex02 > span {
+    background-color: orangered;
+    color: white;
+    padding: 30px;
+    margin: 20px;
+    display: block;
+}
+
+#ex03 > span {
+    background-color: darkolivegreen;
+    color: white;
+    padding: 30px;
+    margin: 20px
+}
+

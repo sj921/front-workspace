@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07_테이블.html</title>
+</head>
+<body>
+
+    <h3># 웹 페이지에 표 출력하기</h3>
+
+    <p>
+        &lt;table&gt; : 표의 범위를 지정하는 태그 <br>
+        &lt;tr&gt; : table row, 표에 한 줄을 추가하는 태그 <br>
+        &lt;th&gt; : table header, 해당 줄에 제목 칸을 추가하는 태그 <br>
+        &lt;td&gt; : table data, 해당 줄에 데이터 칸을 추가하는 태그 <br>
+    </p>
+
+    <table border="2">
+        <tr>
+            <th>국어</th>
+            <th>영어</th>
+            <th>수학</th>
+            <th>과학</th>
+            <th>기술</th>
+            <th>총합</th>
+        </tr>
+        <tr>
+            <td>100</td>
+            <td>25</td>
+            <td>55</td>
+            <td>72</td>
+            <td>83</td>
+            <td>?</td>
+        </tr>
+    </table>
+
+    <table border="5">
+        <tr>
+            <th>이름</th>
+            <th colspan="2">전화번호</th> <!-- 2 column을 차지하게 된다 -->
+            <th>이메일</th>
+            <th>프로필</th>
+        </tr>
+        <tr>
+            <td rowspan="2">빌 게이츠</td> <!-- 2 row를 차지하게 된다 -->
+            <td>010-1234-1234</td>
+            <td>없음</td>
+            <td>bill@microsoft.com</td>
+            <td><img src="https://w.namu.la/s/5a772a3c91e68c2255dd6460643d0a8a0d2458952b684ee042db1ad01999116ff86765c66dcef06ccc51f206a12a0515bcf4be620e6105ee8e51214aef68ded0f0d42bc8e340e4dd1ca5cc6df4d72e323d388c91617ded03f54ca56f2867296cf68fadf29fc42c7743ac9697a460848b" width="50"></td>
+        </tr>
+        <tr>
+            <td>010-1111-1111</td>
+            <td>Nothing</td>
+            <td>bill3@microsoft.com</td>
+            <td>No</td>
+        </tr>
+    </table>
+    
+    <table border="1">
+        <tr>
+            <th colspan="6">Time Table</th>
+        </tr>
+        <tr>
+           <th rowspan="6">Hours</th>
+           <th>Mon</th>
+           <th>Tue</th>
+           <th>Wed</th>
+           <th>Thu</th>
+           <th>Fri</th>
+        </tr>
+        <tr>
+            <td>Science</td>
+            <td>Maths</td>
+            <td>Science</td>
+            <td>Maths</td>
+            <td>Arts</td>
+        </tr>
+        <tr>
+            <td>Social</td>
+            <td>History</td>
+            <td>English</td>
+            <td>Social</td>
+            <td>Sports</td>            
+        </tr>
+        <tr>
+            <th colspan="5">Lunch</th>
+        </tr>
+        <tr>
+            <td>Science</td>
+            <td>Maths</td>
+            <td>Science</td>
+            <td>Maths</td>
+            <td rowspan="2">Project</td>
+        </tr>
+        <tr>
+            <td>Social</td>
+            <td>History</td>
+            <td>English</td>
+            <td>Social</td>
+        </tr>
+    </table>
+
+</body>
+</html>

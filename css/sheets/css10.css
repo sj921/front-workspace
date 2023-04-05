@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+#font1 {
+    /* 
+        글꼴, 예비 글꼴을 여러개 설정할 수 있다.
+        예비 글꼴은 크기가 같은 글꼴을 사용하는 것이 좋다.
+    */
+    font-family: '궁서채', '바탕채', '굴림';  
+    font-size: 35px;        /* 글꼴 크기 */
+    font-weight: 900;       /* 글꼴 굵기 */
+    font-style: italic;     /* 기울임 설정 */
+}
+
+#font2 {
+    font-family: 'Rubik Bubbles', cursive;
+    font-size: 50px;
+    color: #2c2c2c;
+    background-color: #d5d5d5;
+    letter-spacing: .05em;
+    padding: 10px 10px 10px 10px;
+    text-shadow: 4px 4px 0px #d5d5d5, 
+                 7px 7px 0px rgba(0, 0, 0, 0.2);
+}
+
+#font3 {
+    font-family: 'Righteous', cursive;
+    font-size: 50px;
+    color: #f1ebe5;
+    text-shadow: 0 13.36px 8.896px #c4b59d,0 -2px 1px #fff;
+    letter-spacing: -4px;
+
+}
+
+#font4 {
+    font-family: 'Gugi', cursive;
+    font-size: 50px;
+    text-shadow: -5px 5px 0px gold;
+}
+
+#font5 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 50px;
+    /* text-shadow: 5px -5px 0px lightseagreen; */
+    /* text-shadow: .1em .1em 0 hsl(200 50% 30%); */
+    text-shadow: -1px -1px 0px lightseagreen,
+                 3px 3px 0px lightseagreen,
+                 6px 6px 0px green;
+}
+
+
+

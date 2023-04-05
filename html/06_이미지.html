@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06_이미지.html</title>
+</head>
+<body>
+    
+    <h3># 웹 페이지에 이미지 넣기</h3>
+
+    <p>
+        - src 속성 : 출력하고자 하는 이미지의 경로 <br>
+        - alt 속성 : 해당 이미지에 대한 설명
+          (이미지 출력 실패시 대신 출력되는 문구) <br>
+        - width 속성 : 해당 이미지의 너비 조절 <br>
+        - height 속성 : 해당 이미지의 높이 조절 <br>
+        - alt 속성은 쓸모없어 보이더라도 Screen Reader 프로그램을 배려하여
+          채워놓아야 한다 (웹 표준) <br>
+    </p>
+
+    <img src="https://i0.wp.com/pictorium.shop/wp-content/uploads/2021/07/B-facodream04-100X75_upload-1.jpg?fit=750%2C500&ssl=1" 
+         alt="펭귄 그린 그림" width="500" height="100">
+
+    <!-- 너비, 높이 둘 중 하나만 지정하면 알아서 비율을 맞춰준다 -->
+    <img src="https://i0.wp.com/pictorium.shop/wp-content/uploads/2021/07/B-facodream04-100X75_upload-1.jpg?fit=750%2C500&ssl=1" 
+         alt="펭귄 그린 그림" width="500">
+    
+    <!-- 경로가 틀리거나 어떤 문제가 있을 때는 alt 속성값이 대신 나온다 -->
+    <img src="https://i0.wㅅp.com/pictorium.shop/wp-content/uploads/2021/07/B-facodream04-100X75_upload-1.jpg?fit=750%2C500&ssl=1" 
+         alt="펭귄 그린 그림" width="500">
+         
+
+</body>
+</html>

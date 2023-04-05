@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_연산자(copy).html</title>
+</head>
+<body>
+
+    <h3># Javascript 산술 연산</h3>
+
+    <ul>
+        <li>나누기만 약간 주의할 것 (몫을 구할 때 parseInt() 사용)</li>
+    </ul>
+
+    <h3># Javascript 비교 연산</h3>
+
+    <ul>
+        <li>Java와 몇 개 빼고 다 똑같다</li>
+        <li>==, != : 값이 일치(불일치)하면 true, 타입을 신경쓰지 않음</li>
+        <li>===, !== : 값이 일치(불일치)하면 true, 타입을 신경씀</li>
+    </ul>
+
+    <script>
+        console.log('1 == 1 ? ', 1 == 1);        
+        console.log('\'1\' == 1? ', '1' == 1);
+
+        console.log('1 != 1 ? ', 1 != 1);
+        console.log('\'1\' != 1 ? ', '1' != 1);
+
+        console.log('---------------------');
+
+        console.log('1 === 1 ? ', 1 === 1);
+        console.log('\'1\' === 1? ', '1' === 1);
+
+        console.log('1 !== 1 ? ', 1 !== 1);
+        console.log('\'1\' !== 1 ? ', '1' !== 1);
+
+        console.log(10 + 7);
+        console.log(10 - 7);
+        console.log(10 * 7);
+
+        // 몫만 구하는 방법이 없음 (무조건 정확한 계산)
+        console.log(10 / 7);
+        console.log(10 / '7');      // 근본x
+        console.log('10' / '7');    // 근본x
+
+        // parseInt 함수로 소수점 제거하여 몫만 구하기
+        console.log('몫:', parseInt(10 / 7));
+
+        console.log(10 % 7);
+
+  
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12_DOM(copy).html</title>
+</head>
+<body>
+    
+    <h3># Document Object Model (DOM)</h3>
+
+    <ul>
+        <li>웹 브라우저가 HTML코드를 해석하여 생성하는 객체</li>
+        <li>DOM을 통해 HTML의 모든 요소에 접근할 수 있다</li>
+    </ul>
+
+    <h3># DOM의 유용한 메서드들</h3>
+
+    <ul>
+        <li id="test">document.getElementById(id)</li>
+        <li class="red">document.getElementByTagName(tagName)</li>
+        <li class="blue big">document.getElementByClassName(className)</li>
+        <li class="big">document.querySelector(cssSelector)</li>
+        <li class="big important">document.querySelectorAll(cssSelector)</li>
+    </ul>
+
+    <h3># 선택한 HTML 요소를 변경하는 방법</h3>
+
+    <ul>
+        <li>element.innerHTML : tag 사용 가능</li>
+        <li>element.innerText : tag 사용 불가능</li>
+        <li>element.attributeName : 해당 요소의 속성에 접근</li>
+        <li>element.setAttribute() : 메서드를 통해 해당 요소의 속성을 수정</li>    
+        <li>element.addEventListenet() : 메서드를 통해 해당 요소에 이벤트를 설정</li>   
+        <li>element.style.propertyName : 해당 요소의 CSS값을 직접 수정</li> 
+    </ul>
+
+    <img id="img" src="" alt="nothing" width="150">
+
+    <div id="out"></div>
+
+    <input id="cmd" type="text">
+
+    <script>
+        // console.log(document);
+        // console.dir(document);  // 디렉토리 방식으로 콘솔에 출력하는 메서드
+
+        // 해당 클래스를 지닌 모든 요소를 가져오는 메서드
+        const uls = document.getElementsByTagName('ul');
+
+        // 해당 태그 이름으로 여러 요소들을 가져오는 메서드
+        const bigs = document.getElementsByClassName('big');
+
+        // CSS Selector를 이용해 원하는 요소를 하나만 선택
+        const test = document.querySelector('#test');
+
+        // CSS Selector를 이용해 원하는 요소를 여러개 선택할 수 있음
+        const listItems = document.querySelector('ul > li:nth-child(2)');
+
+        console.log(uls);
+        console.log(bigs);
+        console.log(test);
+        console.log(listItems[0]);
+        console.log(listItems[1]);
+
+        const out = document.querySelector('#out');
+        const cmd = document.querySelector('#cmd');
+        const img = document.querySelector('#img');
+
+        out.style = "color: red;";
+
+        const imageList = [
+            'https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FAFzsZ%2FbtqI088tZW3%2FHCqq10x0OG9SoMdG2Bo3YK%2Fimg.jpg',
+            'https://img.animalplanet.co.kr/news/2022/10/13/700/gzs211818b42g2a88a13.jpg',
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8P764zhbALibByxvq51H4flscx-awx-Yerw&usqp=CAU'
+        ];
+
+        const getRandomImage = () => imageList[parseInt(Math.random() * imageList.length)];
+
+        // out.onclick = function () {
+        //     alert(out.innerHTML);
+        // };  
+
+        cmd.addEventListener('keydown', (e) => {
+            // console.log(e);
+
+            switch (e.keyCode) {
+                case 13:
+                    console.log('Enter has been pressed');
+                    // input 태그들은 innerHTML,Text가 아니라 value를 변경해야 한다
+                    out.innerHTML += `<div>you : ${cmd.value}</div>`;
+                    cmd.value = ''; 
+                    // img.src = getRandomImage();
+                    img.setAttribute('src', getRandomImage());
+
+                    break;
+                default:
+                    console.log('Other key has been pressed');
+                    break;
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

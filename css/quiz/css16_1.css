@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+#font1 {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+}
+
+#font2 {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 15px;
+    color: mediumorchid;
+}
+
+* {
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: rgb(248, 229, 248);
+}
+
+h3 {
+    margin-left: 30px;
+}
+
+h5 {
+    margin-left: 30px;
+    margin-bottom: 2px;
+}
+
+div {
+    border: solid black 1px;
+    padding: 5px;
+    background-color: mediumorchid;
+}
+
+.flex-container {
+    display: flex;  
+    margin: 0px 30px 0px 30px;
+    background-color: mediumorchid;
+}
+
+.flex-container > div:first-child {
+    width: 20%;
+    height: 90%;  
+    margin-right: 10px;
+    background-color: orange;
+}
+
+.flex-container > div:nth-child(2) {
+    width: 10%;
+    height: 90%;
+    margin-right: 10px;
+    background-color: orange;
+}
+
+.flex-container > div:nth-child(3) {
+    width: 20%;
+    height: 90%;
+    background-color: orange;
+}
+
+#container1 {
+    height: 40px;       
+    justify-content: flex-start;     
+}
+
+#container2 {
+    height: 40px;
+    justify-content: flex-end;  
+}
+
+#container3 {
+    height: 40px;
+    justify-content: center;  
+}
+
+#container4 {
+    height: 40px;
+    justify-content: space-between;  
+}
+
+#container5 {
+    height: 40px;
+    justify-content: space-around;  
+}
+
+#container6 {
+    height: 40px;
+    justify-content: space-evenly;  
+}
+
+
+

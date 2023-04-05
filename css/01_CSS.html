@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_CSS.html</title>
+    <style>
+        /* Style Sheet 영역 */
+        /* 스타일 시트의 주석 문법 */
+
+        /* 태그 이름을 적고 해당 태그가 어떻게 보여야 하는지를 설정하기 */
+        h3 {
+            background-color: red;
+            color: white;
+            border-radius: 20px;
+            padding: 10px;
+            width: 50%;
+        }
+
+        /*
+            선택자(Selector){
+                속성(property) : 값(property value)
+            }
+
+            선택자 : 어떤 HTML 요소에 대한 스타일인지를 선택하는 곳
+            속성 : 해당 요소의 어떤 속성을 설정할 것인지 선택하는 곳
+            값 : 해당 속성의 값을 적는 곳        
+        */
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            border: 3px solid palevioletred;
+            padding: 5px;
+            margin-bottom: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h3># CSS (Cascading Style Sheet)</h3>
+
+    <ul>
+        <li>CSS는 웹 페이지의 스타일(디자인)을 담당한다</li>
+        <li>
+            CSS는 해당 페이지의 모든 요소가 어떻게 사용자에게 보여져야 하는지를 
+            적어놓은 목록이다
+        </li>
+        <li>
+            그 목록을 보고 웹 브라우저(Chrome, Firefox, Safari...)가 
+            요소를 그대로 사용자의 화면에 그려준다
+        </li>
+        <li>
+            스타일시트로 모든 디자인을 원하는대로 수정할 수 있으므로 
+            HTML의 기본 디자인 설정은 거의 쓸모가 없고 
+            해당 HTML 태그의 의미만이 중요하다
+        </li>
+    </ul>
+    
+</body>
+</html>
